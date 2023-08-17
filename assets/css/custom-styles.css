@@ -1,0 +1,84 @@
+body {
+    /*background: rgb(116, 184, 146);*/
+    background: rgb(41, 170, 176);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1rem;
+    padding: 0 1em;
+}
+
+.wrapper {
+    max-width: 25rem;
+    margin: 5rem auto;
+    background-color: white;
+    border-radius: .5rem; 
+    border-left: 15px solid rgba(229, 255, 61); 
+    box-shadow: 3px 3px 10px rgba(0,0,0, .4);
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+span.tag {
+    display: inline-block;
+    padding: .2rem .4rem;
+    border-radius: .2rem;
+    background-color: #eee;
+    color: #333;
+    font-size: .9rem;
+    margin-left: .2rem;
+}
+
+header {
+    padding: 1rem 2rem;
+}
+
+main {
+    
+}
+
+ul.homework-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.homework-links li { 
+    border-top: 2px solid #ddd;
+}
+
+ul.homework-links li:last-child {
+    
+}
+
+ul.homework-links li a {    
+    display: block;
+    padding: 1rem 2rem;
+    background-color: #eee;
+    color: #555;
+    border-left: 1px solid #ddd;
+}
+
+ul.homework-links li:last-child a {
+    border-radius: 0 0 .5rem .5rem; 
+}
+
+ul.homework-links li a.completed { 
+    background-color: #fff; 
+    color: rgb(91, 0, 148);
+}
+
+ul.homework-links li a:hover { 
+    /*background-color: #ddd;*/
+    color: rgb(148, 0, 148);
+}
+
+ul.homework-links li a.completed:hover {
+    background-color: white;
+    color: rgb(148, 0, 148);
+}
