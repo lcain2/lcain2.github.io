@@ -6,14 +6,7 @@ body {
     padding: 0 1em;
 }
 
-.wrapper {
-    max-width: 25rem;
-    margin: 5rem auto;
-    background-color: white;
-    border-radius: .5rem; 
-    border-left: 15px solid rgba(229, 255, 61); 
-    box-shadow: 3px 3px 10px rgba(0,0,0, .4);
-}
+/**/
 
 h1 {
     font-size: 1.6rem;
@@ -21,7 +14,52 @@ h1 {
 }
 
 h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
     font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: .9rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    color: rgb(57, 1, 186);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: rgb(160, 0, 200);
+    text-decoration: double;
+}
+
+a:visited {
+    color: rgb(26, 0, 87);
+}
+
+a:focus {
+    outline-color: rgb(255, 95, 27);
+}
+
+a.button {
+    display: inline-block;
+    border-radius: .2rem;
+    border: 1px solid rgb(57, 1, 186);
+    padding: .5rem;
 }
 
 span.tag {
@@ -34,12 +72,41 @@ span.tag {
     margin-left: .2rem;
 }
 
+/**/
+
+.wrapper {
+    max-width: 70rem;   
+    margin: 5rem auto;
+    background-color: white;
+    border-radius: .5rem; 
+    border-left: 15px solid rgba(229, 255, 61); 
+    box-shadow: 3px 3px 10px rgba(0,0,0, .4);
+}
+
+.wrapper-narrow {
+    max-width: 25rem;
+}
+
 header {
     padding: 1rem 2rem;
 }
 
 main {
-    
+    padding: 0 2rem 2rem;   
+}
+
+/* Icons */
+
+.material-symbols-outlined {
+    font-size: 1.2rem;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+/* Index Page */
+
+.home h2 {
+    font-size: 1.2rem;
 }
 
 ul.homework-links {
@@ -60,25 +127,56 @@ ul.homework-links li a {
     display: block;
     padding: 1rem 2rem;
     background-color: #eee;
-    color: #555;
     border-left: 1px solid #ddd;
+}
+
+ul.homework-links li a:hover {    
+    background-color: #fff;
 }
 
 ul.homework-links li:last-child a {
     border-radius: 0 0 .5rem .5rem; 
 }
 
+/* save for later: completed class
+
 ul.homework-links li a.completed { 
     background-color: #fff; 
     color: rgb(91, 0, 148);
 }
 
-ul.homework-links li a:hover { 
-    /*background-color: #ddd;*/
-    color: rgb(148, 0, 148);
-}
 
 ul.homework-links li a.completed:hover {
     background-color: white;
     color: rgb(148, 0, 148);
+}
+
+*/
+
+/* Homework Subpages */
+
+h1 span.hw-number {
+    background-color: rgb(160, 0, 200);
+    color: white;
+    display: inline-block;
+    border-radius: .2em;
+    padding: .2em .6em;
+}
+
+.back-link {
+    display: block;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2em;
+}
+
+.announcement {
+    background: rgb(234, 255, 204);
+    padding: 2rem 4rem 2rem;
+}
+
+.announcement p {
+    color: rgb(86, 115, 44);
+    font-size: 3rem;
+    text-align: center;
 }
