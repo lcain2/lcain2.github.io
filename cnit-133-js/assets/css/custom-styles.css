@@ -37,14 +37,21 @@ p {
     font-size: 1rem;
 }
 
+p.giant {
+    font-size: 5rem; 
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
 a {
     color: rgb(57, 1, 186);
     text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 a:hover {
     color: rgb(160, 0, 200);
-    text-decoration: double;
+    text-decoration: none;
 }
 
 a:visited {
@@ -55,11 +62,31 @@ a:focus {
     outline-color: rgb(255, 95, 27);
 }
 
-a.button {
+.button, .button-small {
     display: inline-block;
-    border-radius: .2rem;
-    border: 1px solid rgb(57, 1, 186);
-    padding: .5rem;
+    border-radius: .3rem;
+    padding: .8rem 1rem;
+    font-weight: 900;
+    text-decoration: none;
+    background: rgb(57, 1, 186);
+    box-shadow: 2px 2px 5px rgba(0,0,0, .4);
+    color: white;
+    font-size: 1.1em;
+}
+
+.button:hover, .button-small:hover {
+    background: rgb(76, 0, 255);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: white;
+}
+
+.button:visited {
+    color: white;
+}
+
+.button.button-topmarg {
+    margin-top: 3em;
 }
 
 span.tag {
@@ -156,11 +183,19 @@ ul.homework-links li a.completed:hover {
 /* Homework Subpages */
 
 h1 span.hw-number {
-    background-color: rgb(160, 0, 200);
-    color: white;
     display: inline-block;
     border-radius: .2em;
     padding: .2em .6em;
+    color: white;
+    background-color: rgb(160, 0, 200);
+}
+
+h1 span.hw-part {
+    display: inline-block;
+    border-radius: .2em;
+    padding: .2em .6em;
+    border: 1px solid  rgb(160, 0, 200);  
+    color: rgb(160, 0, 200);  
 }
 
 .back-link {
@@ -168,6 +203,13 @@ h1 span.hw-number {
     padding-bottom: 1em;
     border-bottom: 1px solid #ccc;
     margin-bottom: 2em;
+}
+
+.back-link-bottom {
+    display: block;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+    margin-top: 2em;
 }
 
 .announcement {
@@ -180,3 +222,85 @@ h1 span.hw-number {
     font-size: 3rem;
     text-align: center;
 }
+
+.panel_group {
+    display: flex;
+    gap: 1rem;
+}
+
+.panel {
+    background: #eee;
+    border-radius: .4rem;
+    padding: 1rem 2rem;
+    flex: 1;
+}
+
+.panel-green {
+    background: #d2f7e0;
+}
+
+@media (max-width: 992px) {
+    .panel_group {
+        display: block;
+    }
+    .panel {
+        margin-bottom: .5rem;
+    }
+}
+
+/* Forms */
+
+form {
+    
+}
+
+.field-group {
+    display: block;
+    padding: .5rem 0;
+}
+
+.validation {
+}
+
+.error {
+    display: block;
+    background-color: #ffb7b7;
+    border: 1px solid red;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: .3rem;
+}
+
+input[type=submit], input[type=button], input[type=reset], button {
+    cursor: pointer;
+}
+
+form .button, .button-small {
+    padding: .6rem .8rem;
+    font-size: 1em;
+    border: none;
+    margin: .5rem 1rem .5rem 0;
+}
+
+form .button-secondary {
+    background: #555;
+}
+
+form .reset {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1em;
+    color: rgb(57, 1, 186);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+    
+form .reset:hover {
+    color: rgb(160, 0, 200);
+    text-decoration: none;
+}
+
+/* Homework 2 */
+
+

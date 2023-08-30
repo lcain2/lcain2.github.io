@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript - Basic Operations">
+  <title>Homework 2, Part 2: JavaScript - Basic Operations</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body class="hw-sub hw2 hw2-2">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw2.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 2</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> <span class="hw-part">Part 2</span></h1>
+</header>
+
+<main>
+  <div>
+    <script>
+
+      // declare and initialize variables
+
+      var num1, num2, num3, n1, n2, n3, lgNum, smNum;
+      num1 = 0;
+      num2 = 0;
+      num3 = 0;
+      n1 = 0;
+      n2 = 0;
+      n3 = 0;
+      lgNum = 0;
+      smNum = 0;
+
+      // form & results
+      
+      document.write("<h2>Finding the sum, product, average, largest number and smallest number of three integers.</h2>");
+      document.write("<div class=\"panel_group\">");
+      document.write("<div class=\"panel\">");
+      document.write("<form name=\"hw2-num\">");
+      document.write("<h3>Enter Three Numbers:</h3>");
+      document.write ("<div class=\"field-group\"><label for=\"num1\">First Number:</label> <input type=\"text\" id=\"num1\" name=\"num1\" size=\"10\"></div>");
+      document.write ("<div class=\"field-group\"><label for=\"num2\">Second Number:</label> <input type=\"text\" id=\"num2\" name=\"num2\" size=\"10\"></div>");
+      document.write ("<div class=\"field-group\"><label for=\"num3\">Third Number:</label> <input type=\"text\" id=\"num3\" name=\"num3\" size=\"10\"></div>");
+      document.write ("<div id=\"validation\" class=\"validation\"></div>");
+      document.write ("<input type=\"button\" onclick=\"process()\" value=\"Submit\" class=\"button submit\"><input type=\"reset\" value=\"Reset\" onclick=\"formReset()\" class=\"reset\">");
+      document.write("</form>");
+      document.write("</div>"); // end panel
+      document.write("<div class=\"panel panel-green panel-results\">");
+      document.write ("<div id=\"results\" class=\"results\"></div>");
+      document.write("</div>"); // end panel
+      document.write("</div>"); //end panel-group
+
+      // on form submit 
+
+      function process() {
+
+        // clear old results/validation on form submit
+
+        document.getElementById("validation").innerHTML = "";
+        document.getElementById("results").innerHTML = "";
+
+        // assign variables to fields
+        num1 = parseFloat(document.forms["hw2-num"].elements["num1"].value);
+        num2 = parseFloat(document.forms["hw2-num"].elements["num2"].value);
+        num3 = parseFloat(document.forms["hw2-num"].elements["num3"].value);
+        
+        // convert to numbers from strings to integers
+        n1 = parseInt(num1);
+        n2 = parseInt(num2);
+        n3 = parseInt(num3);
+
+        // check to see if they are numbers & display error message if not
+
+        var errorOutput = "You must enter a number in each field";
+
+        if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+          document.getElementById("validation").innerHTML = "<div class=\"error\">" + errorOutput + "</div>";
+        }
+        
+        // if numbers are valid, find sum, average, product & display
+        else {
+
+          // find sum
+          sum = n1 + n2 + n3;
+
+          // find average
+          average = sum / 3;
+
+          // find product
+          product = n1 * n2 * n3;
+
+          // find largest number
+
+          lgNum = Math.max(n1, n2, n3);
+
+          // find smallest number
+
+          smNum = Math.min(n1, n2, n3);
+
+          // show results
+
+          var resultsOutput = "";
+          resultsOutput += "<div id=\"results-message\"><h3>Results:</h3>";
+          resultsOutput += "<p>";
+          resultsOutput += "Sum: " + sum + "<br>";
+          resultsOutput += "Product: " + product + "<br>"; 
+          resultsOutput += "Average: " + average.toFixed(2) + "<br>";
+          resultsOutput += "Largest Number: " + lgNum + "<br>";
+          resultsOutput += "Smallest Number: " + smNum;
+          resultsOutput += "</p>";
+          resultsOutput += "</div>";
+          resultsOutput += "<button id=\"fade\" class=\"fade-button button-small\"><span>Fade Results</span></button>";
+
+          document.getElementById("results").innerHTML = resultsOutput;
+
+          // fade results
+   
+          $("button#fade").click(function(){
+            $("#results-message").fadeTo("slow", 0.15);
+          });
+
+        }
+      
+      } // end process function
+
+      
+
+      // clear old results/validation via reset button
+
+      function formReset() {
+    
+        document.getElementById("validation").innerHTML = "";
+        document.getElementById("results").innerHTML = "";
+
+      }
+
+    </script>
+    </div>
+
+    <a href="hw2-part1.html" class="button button-topmarg">View Part 1</a>
+    <div class="back-link-bottom">
+      <a href="index.html"><span class="material-symbols-outlined">
+        keyboard_return</span> Homework List</a> 
+    </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

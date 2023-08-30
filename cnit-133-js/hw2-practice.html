@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 2 for JavaScript, jQuery, AJAX">
+  <title>Homework 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  
+  <style>
+    .right-align {text-align: right;}
+  </style>
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> Practice Page</h1>
+</header>
+
+<main>
+<!-- Main Content -->
+  
+<!-- Exercise 1a -->
+  <script>
+    // Exercise 1a: document.write
+    document.write ("<em style=\"color: orange; font-weight: bold\">A, ");
+    document.write ("B, ");
+    document.write ("C</em>");
+  </script>
+
+<!-- Exercise 1b -->
+
+  <script>
+
+    var s1, s2, s3, sb1, sb2, sb3, totalSal, totalBon;
+
+    document.write ("<div>");
+    document.write ("<form name=\"salary_calc\">");
+    document.write ("<table><tbody>");
+    document.write ("<tr><th>Name</th><th>Salary</th><th>Salary + Bonus</th></tr>");
+    document.write ("<tr><td><input type=\"text\" name=\"name1\" value=\"Miranda Snipcheck\" size=\"20\"></td><td><input type=\"text\" name=\"s1\" autofocus class=\"right-align\"></td><td><input type=\"text\" disabled=\"disabled\" name=\"sb1\" class=\"right-align\" size=\"20\"></td></tr>");
+    document.write ("<tr><td><input type=\"text\" name=\"name2\" value=\"Fernando Flapjack\" size=\"20\"></td><td><input type=\"text\" name=\"s2\" autofocus class=\"right-align\"></td><td><input type=\"text\" disabled=\"disabled\" name=\"sb2\" class=\"right-align\" size=\"20\"></td></tr>");
+    document.write ("<tr><td><input type=\"text\" name=\"name3\" value=\"Pasqual Peacock\" size=\"20\"></td><td><input type=\"text\" name=\"s3\" autofocus class=\"right-align\"></td><td><input type=\"text\" disabled=\"disabled\" name=\"sb3\" class=\"right-align\" size=\"20\"></td></tr>");
+    document.write ("<tr><td>Totals:</td><td><input type=\"text\" disabled=\"disabled\" name=\"totalSal\" class=\"right-align\"></td><td><input type=\"text\" disabled=\"disabled\" name=\"totalBon\" class=\"right-align\"></td></tr>");
+    document.write ("</tbody></table>");
+    document.write ("<input type=\"button\" onclick=\"process()\" value=\"Calculate\"><input type=\"reset\" value=\"Reset\">");
+    document.write ("</form>");
+    document.write ("</div>")
+
+    function process() {
+
+      // assign variables to fields
+      s1 = parseFloat(document.forms["salary_calc"].elements["s1"].value);
+      s2 = parseFloat(document.forms["salary_calc"].elements["s2"].value);
+      s3 = parseFloat(document.forms["salary_calc"].elements["s3"].value);
+
+      //add 100 bonus
+
+      sb1 = s1 + 100;
+      sb2 = s2 + 100;
+      sb3 = s3 + 100;
+
+      // add up salaries col
+
+      totalSal = s1 + s2 + s3;
+
+      // add up salaries + bonus col
+
+      totalBon = sb1 + sb2 + sb3;
+
+      // display salary + bonus
+
+      document.forms["salary_calc"].elements["sb1"].value = sb1.toFixed(2);
+      document.forms["salary_calc"].elements["sb2"].value = sb2.toFixed(2);
+      document.forms["salary_calc"].elements["sb3"].value = sb3.toFixed(2);
+
+      // display column totals
+
+      document.forms["salary_calc"].elements["totalSal"].value = totalSal.toFixed(2);
+      document.forms["salary_calc"].elements["totalBon"].value = totalBon.toFixed(2);
+
+    }
+ </script>
+
+<!-- Exercise 2a: prompt, if statement, and alert -->
+
+<script>
+
+  // declare variables
+
+  var number1, number2, number3, number4, n1, n2, n3, n4, underSix = 0, overSix = 0;
+
+  // prompt for 4 integers
+
+  number1 = window.prompt ("Enter your first integer: ", "");
+  number2 = window.prompt ("Enter your second integer: ", "");
+  number3 = window.prompt ("Enter your third integer: ", "");
+  number4 = window.prompt ("Enter your fourth integer: ", "");
+
+  // convert to numbers from strings to integers
+
+  n1 = parseInt(number1);
+  n2 = parseInt(number2);
+  n3 = parseInt(number3);
+  n4 = parseInt(number4);
+
+ // check to see if they are numbers
+
+ if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)) {
+  alert("Numbers only, fool");
+ } 
+  else {
+    if (n1 < 6)
+      underSix = underSix + 1;
+    if (n1 >= 6)
+      overSix = overSix + 1;
+
+    if (n2 < 6)
+      underSix = underSix + 1;
+    if (n2 >= 6)
+      overSix = overSix + 1;
+
+    if (n3 < 6)
+      underSix = underSix + 1;
+    if (n3 >= 6)
+      overSix = overSix + 1;
+
+    if (n4 < 6)
+      underSix = underSix + 1;
+    if (n4 >= 6)
+      overSix = overSix + 1;
+
+      // find product
+
+    product = n1 * n2 * n3 * n4;
+
+    // alert the entered numbers, product, and 2 counts
+
+    window.alert("You entered " + number1 + ", " + number2 + ", " + number3 + ", " + number4 + ". \nThe product is " + product + ".\n" + "Integers over six: " + overSix + ".\n" + "Integers under six: " + underSix + "." );
+
+  }
+
+</script>
+
+<!-- Exercise 2b: Same as previous problem except using form text boxes as input and a form textarea as output -->
+
+
+
+
+<!-- End Main Content -->
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
