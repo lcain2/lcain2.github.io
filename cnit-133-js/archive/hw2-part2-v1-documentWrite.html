@@ -23,25 +23,8 @@
 </header>
 
 <main>
-
-    <h2>Finding the sum, product, average, largest number and smallest number of three integers.</h2>
-      <div class="panel_group">
-        <div class="panel">
-          <h3>Enter Three Numbers:</h3>
-          <form name="hw2-num">
-            <div class="field-group"><label for="num1">First Number:</label> <input type="text" id="num1" name="num1" size="10"></div>
-              <div class="field-group"><label for="num2">Second Number:</label> <input type="text" id="num2" name="num2" size="10"></div>
-              <div class="field-group"><label for="num3">Third Number:</label> <input type="text" id="num3" name="num3" size="10"></div>
-              <div id="validation" class="validation"></div>
-              <input type="button" onclick="process()" value="Submit" class="button submit"><input type="reset" value="Reset" onclick="formReset()" class="reset">
-          </form>
-        </div>
-        <div class="panel panel-green panel-results">
-          <div id="results" class="results"></div>
-        </div>
-      </div> <!-- end panel group -->
-
-      <script>
+  <div>
+    <script>
 
       // declare and initialize variables
 
@@ -55,7 +38,26 @@
       lgNum = 0;
       smNum = 0;
 
-      // form submit function
+      // form & results
+      
+      document.write("<h2>Finding the sum, product, average, largest number and smallest number of three integers.</h2>");
+      document.write("<div class=\"panel_group\">");
+      document.write("<div class=\"panel\">");
+      document.write("<form name=\"hw2-num\">");
+      document.write("<h3>Enter Three Numbers:</h3>");
+      document.write ("<div class=\"field-group\"><label for=\"num1\">First Number:</label> <input type=\"text\" id=\"num1\" name=\"num1\" size=\"10\"></div>");
+      document.write ("<div class=\"field-group\"><label for=\"num2\">Second Number:</label> <input type=\"text\" id=\"num2\" name=\"num2\" size=\"10\"></div>");
+      document.write ("<div class=\"field-group\"><label for=\"num3\">Third Number:</label> <input type=\"text\" id=\"num3\" name=\"num3\" size=\"10\"></div>");
+      document.write ("<div id=\"validation\" class=\"validation\"></div>");
+      document.write ("<input type=\"button\" onclick=\"process()\" value=\"Submit\" class=\"button submit\"><input type=\"reset\" value=\"Reset\" onclick=\"formReset()\" class=\"reset\">");
+      document.write("</form>");
+      document.write("</div>"); // end panel
+      document.write("<div class=\"panel panel-green panel-results\">");
+      document.write ("<div id=\"results\" class=\"results\"></div>");
+      document.write("</div>"); // end panel
+      document.write("</div>"); //end panel-group
+
+      // on form submit 
 
       function process() {
 
@@ -79,10 +81,11 @@
         var errorOutput = "You must enter a number in each field.";
 
         if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
-          document.getElementById("validation").innerHTML = "<div id=\"error\" class=\"error\">" + errorOutput + "</div>";
-          $("#error").fadeIn("slow");
+          document.getElementById("validation").innerHTML = "<div class=\"error\">" + errorOutput + "</div>";
         }
-        else { // if numbers are valid, find sum, average, product & display
+        
+        // if numbers are valid, find sum, average, product & display
+        else {
 
           // find sum
           sum = n1 + n2 + n3;
@@ -104,8 +107,7 @@
           // show results
 
           var resultsOutput = "";
-          resultsOutput += "<div id=\"results-message\">";
-          resultsOutput += "<h3>Results:</h3>";
+          resultsOutput += "<div id=\"results-message\"><h3>Results:</h3>";
           resultsOutput += "<p>";
           resultsOutput += "Sum: " + sum + "<br>";
           resultsOutput += "Product: " + product + "<br>"; 
@@ -118,7 +120,7 @@
 
           document.getElementById("results").innerHTML = resultsOutput;
 
-          // fade results button
+          // fade results
    
           $("button#fade").click(function(){
             $("#results-message").fadeTo("slow", 0.15);
@@ -140,7 +142,7 @@
       }
 
     </script>
-    
+    </div>
 
     <a href="hw2-part1.html" class="button button-topmarg">View Part 1</a>
     <div class="back-link-bottom">

@@ -274,10 +274,15 @@ form {
 input[type=submit], input[type=button], input[type=reset], button {
     cursor: pointer;
 }
+input[type=text] {
+    padding: .3rem .5rem;
+    font-size: 1em;
+    font-family: inherit;
+}
 
 form .button, .button-small {
     padding: .6rem .8rem;
-    font-size: 1em;
+    font-size: 1rem;
     border: none;
     margin: .5rem 1rem .5rem 0;
 }
@@ -302,5 +307,9 @@ form .reset:hover {
 }
 
 /* Homework 2 */
+
+.hw2 #error {
+    display: none;
+}
 
 
