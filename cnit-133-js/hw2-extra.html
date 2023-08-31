@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Calculating exchange rates with JavaScript">
+  <title>Homework 2: Extra Credit</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body class="hw-sub hw2 hw2-2">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw2.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 2</a>
+    <a href="hw2-part1.html">Part 1</a>
+    <a href="hw2-part2.html">Part 2</a>
+    <a href="hw2-extra.html" class="current-page">Extra Credit</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> <span class="hw-part">Extra Credit</span></h1>
+</header>
+
+<main>
+
+  <h2>Calculating exchange rates with JavaScript.</h2>
+  <div class="exchange-rate-wrapper">
+    <div id="flip">Click to Show/Hide Instructions</div>
+    <div id="instruct-panel">
+      <p><em>The foreign exchange rates in June 2021.</em></p>
+      <p><strong>Enter a dollar amount in the table below to see the corresponding foreign exchange values.</strong></p>
+    </div>
+
+    <form name="exchange-rates" id="exchange-rates">
+    <table>
+      <caption style="display: none;">Exchange Rates Example</caption>
+      <tbody>
+        <tr>
+        <th colspan="3" scope="row"><h3>Monetary Exchange Rates</h3></th>
+        </tr>
+        <tr>
+        <th scope="row">Currency</th>
+        <th scope="row">Rate</th>
+        <th scope="row">Value</th>
+        </tr>
+        <tr>
+        <td>Euro</td>
+        <td id="rate_eur">0.84</td>
+        <td><input type="text" readonly name="val_eur" class="right-align" value=""></td>
+        </tr>
+        <tr>
+        <td>Canadian Dollar</td>
+        <td id="rate_can">1.23</td>
+        <td><input type="text" readonly name="val_can" class="right-align" value=""></td>
+        </tr>
+        <tr>
+        <td>Hong Kong Dollar</td>
+        <td id="rate_hon">7.76</td>
+        <td><input type="text" readonly name="val_hon" class="right-align" value=""></td>
+        </tr>
+        <tr>
+        <td>Japanese Yen</td>
+        <td id="rate_jap">110.80</td>
+        <td><input type="text" readonly name="val_jap" class="right-align" value=""></td>
+        </tr>
+        <tr>
+        <td>Mexican Peso</td>
+        <td id="rate_mex">19.82</td>
+        <td><input type="text" readonly name="val_mex" class="right-align" value=""></td>
+        </tr>
+        <tr>
+        <td colspan="2"><strong>Enter Amount of U.S. Dollars</strong></td>
+        <td>
+          <input type="text" name="dollars_entered" id="dollars" class="right-align">
+          <input type="button" onclick="process()" value="Calculate" class="button">
+          <input type="reset" onclick="formReset()" value="Reset" class="reset">
+          <div id="validation"></div>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+      
+    </form>  
+  </div> <!-- end exchange rate wrapper -->
+
+  <script>
+
+      // declare and initialize variables
+
+      var val_eur, val_can, val_hon, val_jap, val_mex, num_eur, num_can, num_hon, num_jap, num_mex, dollars_entered, dollars_num;
+      val_eur = 0; 
+      val_can = 0; 
+      val_hon = 0;
+      val_jap = 0; 
+      val_mex = 0;
+      dollars_entered = 0;
+
+      // form submit function
+
+      function process() {
+
+        // clear old results/validation on form submit
+
+        document.getElementById("validation").innerHTML = "";
+
+        // assign dollar variable to field
+
+        dollars_entered = parseFloat(document.forms["exchange-rates"].elements["dollars_entered"].value);
+
+        // check to see if it is a number & display error message if not
+
+        var errorOutput = "You must enter a number.";
+
+        if (isNaN(dollars_entered)) {
+          document.getElementById("validation").innerHTML = "<div id=\"error\" class=\"error\">" + errorOutput + "</div>";
+          $("#error").fadeIn("slow");
+        }
+        else { // if numbers are valid...
+
+          // convert dollar string to integer
+
+          dollars_num = parseInt(dollars_entered);
+
+          // calculate exchange rate
+
+          val_eur = dollars_num * .84; // europe
+          val_can = dollars_num * 1.23; // canada
+          val_hon = dollars_num * 7.76; // hong kong
+          val_jap = dollars_num * 110.80; // japan
+          val_mex = dollars_num * 19.82; // mexico
+
+          // display exchanged values
+
+          document.forms["exchange-rates"].elements["val_eur"].value = val_eur.toFixed(2);
+          document.forms["exchange-rates"].elements["val_can"].value = val_can.toFixed(2);
+          document.forms["exchange-rates"].elements["val_hon"].value = val_can.toFixed(2);
+          document.forms["exchange-rates"].elements["val_jap"].value = val_jap.toFixed(2);
+          document.forms["exchange-rates"].elements["val_mex"].value = val_mex.toFixed(2);
+
+        }
+      
+      } // end process function
+
+      // clear old validation via reset button
+
+      function formReset() {
+    
+        document.getElementById("validation").innerHTML = "";
+
+      }
+
+      // jQuery
+      
+      $(document).ready(function() {
+
+        // show/hide instruction panel
+        $("#flip").click(function(){
+          $("#instruct-panel").slideToggle("slow");
+        });
+
+        // color dollar field on click
+        $('#dollars').focus(function() {
+		      $(this).css('background-color','#D2F7E0');
+	      });     
+
+      }); // end jQuery
+
+  </script>
+
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

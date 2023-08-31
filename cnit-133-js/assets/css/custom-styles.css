@@ -43,6 +43,10 @@ p.giant {
     margin-bottom: 4rem;
 }
 
+.right-align {
+    text-align: right;
+}
+
 a {
     color: rgb(57, 1, 186);
     text-decoration: underline;
@@ -143,7 +147,7 @@ ul.homework-links {
 }
 
 ul.homework-links li { 
-    border-top: 2px solid #ddd;
+    
 }
 
 ul.homework-links li:last-child {
@@ -155,6 +159,13 @@ ul.homework-links li a {
     padding: 1rem 2rem;
     background-color: #eee;
     border-left: 1px solid #ddd;
+    border-top: 2px solid #ddd;
+}
+
+ul.homework-links li a.completed { 
+    background-color: rgb(250, 255, 220);
+    border-left: 1px solid rgb(220, 234, 131);
+    border-top: 2px solid rgb(220, 234, 131);
 }
 
 ul.homework-links li a:hover {    
@@ -167,10 +178,7 @@ ul.homework-links li:last-child a {
 
 /* save for later: completed class
 
-ul.homework-links li a.completed { 
-    background-color: #fff; 
-    color: rgb(91, 0, 148);
-}
+
 
 
 ul.homework-links li a.completed:hover {
@@ -203,6 +211,23 @@ h1 span.hw-part {
     padding-bottom: 1em;
     border-bottom: 1px solid #ccc;
     margin-bottom: 2em;
+}
+
+.back-link a {
+    display: inline-block;
+    padding-right: .75em;
+    padding-left: .75em;
+    border-left: 1px solid #ccc;
+}
+
+.back-link a:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.back-link a.current-page {
+    text-decoration: none;
+    color: #555;
 }
 
 .back-link-bottom {
@@ -281,7 +306,7 @@ input[type=text] {
 }
 
 form .button, .button-small {
-    padding: .6rem .8rem;
+    padding: .45rem .8rem;
     font-size: 1rem;
     border: none;
     margin: .5rem 1rem .5rem 0;
@@ -306,10 +331,59 @@ form .reset:hover {
     text-decoration: none;
 }
 
+/* Tables */
+
+table {
+    border: 1px solid #ccc;
+    margin: 1em 0;
+}
+
+th {
+    border: 1px solid #ccc;   
+}
+
+td {
+    padding: .5rem;
+    border: 1px solid #ccc;
+}
+
 /* Homework 2 */
 
-.hw2 #error {
-    display: none;
-}
+    /* Part 2 */
+
+    .hw2 #error { 
+        display: none;
+    }
+
+    /* Extra Credit */
+
+    .exchange-rate-wrapper {
+        display: inline-block;
+        max-width: 620px;
+    }
+
+    #flip {cursor: pointer;}
+
+    #instruct-panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #D2F7E0;
+        border: solid 1px #98dcb2;
+    }
+    
+    #instruct-panel {
+        padding: 1rem 2rem;
+        display: none;
+    }
+
+    form#exchange-rates {
+        width: 100%;
+    }
+
+
+
+
+
+
 
 
