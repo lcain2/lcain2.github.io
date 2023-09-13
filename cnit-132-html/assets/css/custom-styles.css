@@ -1,0 +1,69 @@
+body {
+    background: rgb(197, 238, 221);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1rem;
+    padding: 0 1em;
+}
+
+/* Typography */
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.4em;
+}
+
+a {
+    color: rgb(57, 1, 186);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: rgb(160, 0, 200);
+    text-decoration: none;
+}
+
+a:focus {
+    outline-color: rgb(255, 95, 27);
+}
+
+hr {
+    border-color:rgb(57, 1, 186);
+}
+
+ul li, ol li, dl li {
+    font-size: 1rem;
+    line-height: 1.4em;
+    margin-bottom: .5rem;
+}
+
+/* General */
+
+.wrapper {
+    max-width: 70rem;   
+    margin: 5rem auto;
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+/* HW 1B */
+
+img.hw1b-image {
+    float: left;
+    margin: 0 2rem 2rem 0;
+}
+
+
+
+
+
+
+
+
+

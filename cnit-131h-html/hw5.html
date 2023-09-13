@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Leslie Cain's homework 5 assignment for CNIT 131H HTML & CSS, Fall 2023">
+  <title>Homework 5 - HTML Forms & CSS</title>
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+
+  <script language=JavaScript>
+    <!--
+    
+    //Accept terms & conditions script (by InsightEye www.insighteye.com)
+    //Visit JavaScript Kit (http://javascriptkit.com) for this script & more.
+    
+    function checkCheckBox(f){
+    if (f.agree.checked == false )
+    {
+    alert('Please check the box to continue.');
+    return false;
+    }else
+    return true;
+    }
+    //-->
+    </script>
+</head>
+
+<body>
+
+  <header>
+    <h1>CNIT 131H Homework 5: Forms & CSS</h1> 
+  </header>
+
+  <section>
+    <h2>Part 1: Using CSS</h2>
+    <p><span class="large">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis orci sit amet tristique faucibus. Nam sagittis arcu augue, et pharetra libero fermentum ac. Integer in enim et lacus tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse id aliquet mauris. Duis sed commodo est, porttitor feugiat risus. Ut eu diam a enim malesuada interdum nec ac tortor. Cras vulputate pharetra felis eget bibendum.</p>
+    <p><span class="large">P</span>hasellus et finibus tellus. Vestibulum ac posuere massa. Proin odio ligula, ultrices eu interdum id, ullamcorper id mi. Nullam vehicula elit lobortis porttitor convallis. Etiam eleifend elementum orci vitae placerat. Quisque venenatis et nisl ac egestas. Vivamus nisl lectus, consequat vel tempus eu, accumsan ac lectus. Vivamus a volutpat libero, vel condimentum ex. Duis ultricies tellus quis arcu consectetur, nec sagittis augue ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+  </section>
+
+  <footer>
+    <p>Vivamus a volutpat libero, vel condimentum ex. Duis ultricies tellus quis arcu consectetur, nec sagittis augue ullamcorper.</p>
+    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi id volutpat nulla. Mauris nec condimentum est, at tincidunt augue.</p>
+    <p>Donec vestibulum vitae dui vitae hendrerit. Aliquam ultrices scelerisque massa, sed cursus libero vulputate a. In condimentum justo at laoreet pharetra.</p>
+    <p>Cras ac rutrum quam, a lobortis velit. Sed placerat sed odio a tempor. Nulla facilisi. Fusce cursus volutpat ornare. Fusce magna mi, volutpat quis tristique ac, pharetra ut nisl.</p>
+    <p>Sed id finibus diam. Quisque sagittis mauris egestas, faucibus libero ac, hendrerit urna. Vestibulum ut diam non magna pellentesque hendrerit vitae sed eros. Vivamus at dui sit amet turpis sodales luctus eget non orci. Aliquam placerat posuere sem, ut convallis odio porttitor non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras vehicula felis est. Nullam tristique tincidunt egestas. Etiam viverra sapien tristique elit aliquam, ut finibus arcu auctor. Integer aliquet eget sapien vitae sollicitudin. Vestibulum pellentesque metus non ultrices porttitor.</p>
+    <hr>
+    <h2>Extra Credit: Creating a Form</h2>
+    <form action="" method="POST" onsubmit="return checkCheckBox(this)">
+      <label for="fullname">Full Name:</label><br>
+      <input type="text" name="fullname" id="fullname"><br>
+      <label for="email">Email Address:</label><br>
+      <input type="email" name="email" id="email"><br>
+      <label for="age">Age:</label><br>
+      <input type="number" name="age" id="age"><br><br>
+      <!-- Begin JavaScript addition-->
+      <strong>By submitting, I agree that all info entered was done accurately & truthfully.</strong><br />
+      I accept: <input type="checkbox" value="0" name="agree"><br><br>
+      <input type="submit" value="Submit">      
+    </form>
+    <p>Note: The JavaScript added to this form is called "Cut & Paste Accept Terms & Conditions script." The script adds an "I accept" checkbox that the user must click in order for the form to be submitted. If the user does not click the checkbox, a popup message appears. The HTML included with this script has been modified to meet HTML5 standards.</p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,3 +1,23 @@
 body {
-    
+    background-color: #EEE;
+    background-image: url(../images/double-bubble-outline.png);
+    background-repeat: repeat;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: right;
+    font-style: italic;
+}
+
+span.large {
+    font-size: 2rem;
+}
+
+footer {
+    background-image: url(../images/wallpaper.jpeg);
+    background-repeat: repeat-x;
 }
