@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 2 for JavaScript, jQuery, AJAX">
+  <title>Homework 2: Practice Examples</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style>
+    .right-align {text-align: right;}
+  </style>
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> Practice Page</h1>
+</header>
+
+<main>
+<!-- Main Content -->
+
+<!-- Exercise 2c: Same as previous problem except using an array and the 'for' loop statement -->
+
+<script>
+
+// jQuery
+      
+$(document).ready(function() {
+
+  // show/hide instruction panel
+  $("#flip").click(function(){
+    $("#instruct-panel").slideToggle("slow");
+  }); 
+
+  // use jquery to fade results 
+  $("button#fade").click(function(){
+    $("#results-wrap").fadeTo("slow", 0.15);
+  });     
+
+}); // end jQuery
+
+function process(){
+
+  // declare variables
+
+var numbers = [{}, {}, {}, {}], product = 1, underSix = 0, equalSix = 0, overSix = 0, displayArr="";
+
+  // input integers from form text boxes using getElementById
+  // put input value of each number into an array by using a pseudo array 'num'+i' from input boxes
+  // check to see if numbers are less than 6, equal to 6, or greater than 6 using a for looping statement
+  // count to each category
+  // find product of the 4 integers using for statement
+
+    for (i=0; i<numbers.length; ++i) {
+      
+      numbers[i] = parseInt(document.getElementById('num'+i).value);
+
+      if (numbers[i] < 6) {
+        underSix++;
+      }
+      else if (numbers[i] == 6){
+        equalSix++;        
+      }
+      else {
+        overSix++;
+      }
+      product *= numbers[i]; // get product of array elements
+      displayArr += (numbers[i] + " ");  // ready array elements for displaying in textarea
+    }
+       
+     // Display the entered numbers, and other results
+
+     document.forms["integerCalc"].elements["results"].value = ("The inputted numbers were "+ displayArr +
+     "\nThere were " +  underSix + " Integers < 6" + 
+     "\nThere were " +  equalSix + " Integers = 6" + 
+     "\nThere were " + overSix + " Integers > 6" + 
+     "\nThe product of the integers was " + product)
+
+  }
+
+</script>
+
+<div id="flip">Show/Hide Instructions</div>
+  <div id="instruct-panel">
+    <p>Input four integers that uses a form textarea to display the inputted numbers, how many integers were less than 6, how many were equal to 6, how many integers were greater than 6, and the product of the 4 integers.</p>
+  </div><br><br>
+
+<form name="integerCalc" id="integerCalc">
+  <label for="num0">First number:</label><br>
+  <input type="number" name="num0" id="num0"><br><br>
+  <label for="num1">Second number:</label><br>
+  <input type="number" name="num1" id="num1"><br><br>
+  <label for="num2">Third number:</label><br>
+  <input type="number" name="num2" id="num2"><br><br>
+  <label for="num3">Fourth number:</label><br>
+  <input type="number" name="num3" id="num3"><br><br>
+  <input type="button" onclick="process()" value="Submit" id="submit">
+  <input type="reset" id="reset"><br><br>
+  <div class="results-wrap" id="results-wrap">
+    <label for="results">Results:</label><br>
+    <textarea name="Results" id="results" readonly rows="6" cols="40"></textarea><br>
+  </div>
+</form>
+<button id="fade" class="fade-button button-small">Fade Results</button>
+
+
+<!-- End Main Content -->
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

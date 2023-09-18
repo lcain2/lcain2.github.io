@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 2 for JavaScript, jQuery, AJAX">
+  <title>Homework 2: Practice Examples</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style>
+    .right-align {text-align: right;}
+  </style>
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> Practice Page</h1>
+</header>
+
+<main>
+<!-- Main Content -->
+
+<!-- Exercise 3: form input, if statement, and alert -->
+
+<script>
+
+function process() {
+
+  // declare variables
+
+  var num1, num2, n1, n2, sumNum;
+
+  // get first number value from form using method 1
+
+  num1 = document.forms["twoIntCalc"].elements["num1"].value;
+
+  // get second number value from form using method 2
+
+  num2 = document.getElementById("num2").value;
+
+  // alerts the 2 inputted numbers
+
+  window.alert("You entered " + num1 + " and " + num2 + ".");
+
+  // convert numbers from strings to integers
+
+  n1 = parseInt(num1);
+  n2 = parseInt(num2);
+
+  sumNum = n1 + n2;
+
+  // check to see which number is bigger
+
+  if (n1 > n2) 
+    window.alert("The greater number is " + n1 + ".");
+  else if (n2 > n1)
+    window.alert("The greater number is " + n2 + ".");
+  else 
+    window.alert("The numbers are equal or the input is invalid");
+
+  // place sum of numbers in the form text field
+
+  document.forms["twoIntCalc"].elements["sum"].value = sumNum;
+
+}
+
+</script>
+
+<form name="twoIntCalc" id="twoIntCalc">
+  <label for="num1">First Number</label>
+  <input type="number" name="num1" id="num1"><br><br>
+  <label for="num2">Second Number</label>
+  <input type="number" name="num2" id="num2"><br><br>
+  <label for="number2">Sum of the Numbers</label>
+  <input type="number" name="sum" id="sum" readonly><br><br>
+  <input type="button" name="submit" id="submit" value="Submit" onclick="process()">
+  <input type="reset" name="reset" id="reset">
+</form>
+
+<!-- End Main Content -->
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

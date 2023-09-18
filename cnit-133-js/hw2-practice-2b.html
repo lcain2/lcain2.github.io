@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 2 for JavaScript, jQuery, AJAX">
+  <title>Homework 2: Practice Examples</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style>
+    .right-align {text-align: right;}
+  </style>
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">2</span> Practice Page</h1>
+</header>
+
+<main>
+<!-- Main Content -->
+
+<!-- Exercise 2b: Same as previous problem except using form text boxes as input and a form textarea as output -->
+
+<script>
+
+// jQuery
+      
+  $(document).ready(function() {
+
+  // show/hide instruction panel
+  $("#flip").click(function(){
+    $("#instruct-panel").slideToggle("slow");
+  }); 
+
+}); // end jQuery
+
+function process(){
+
+  // declare variables
+
+  var number1, number2, number3, number4, n1, n2, n3, n4, underSix = 0, overSix = 0;
+
+  // input integers from form text boxes using getElementById
+
+  number1 = document.getElementById("number1").value;
+  number2 = document.getElementById("number2").value;
+  number3 = document.getElementById("number3").value;
+  number4 = document.getElementById("number4").value;
+
+  // convert numbers from strings to integers
+
+  n1 = parseInt(number1);
+  n2 = parseInt(number2);
+  n3 = parseInt(number3);
+  n4 = parseInt(number4);
+
+// check to see if they are numbers
+
+if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)) {
+  alert("Please enter 4 numbers");
+ } 
+  else {
+    if (n1 < 6)
+      underSix = underSix + 1;
+    if (n1 >= 6)
+      overSix = overSix + 1;
+
+    if (n2 < 6)
+      underSix = underSix + 1;
+    if (n2 >= 6)
+      overSix = overSix + 1;
+
+    if (n3 < 6)
+      underSix = underSix + 1;
+    if (n3 >= 6)
+      overSix = overSix + 1;
+
+    if (n4 < 6)
+      underSix = underSix + 1;
+    if (n4 >= 6)
+      overSix = overSix + 1;
+
+      // find product
+
+    product = n1 * n2 * n3 * n4;
+
+    // display numbers and results in the text area
+
+    var resultsOutput = "";
+          resultsOutput += "You entered ";
+          resultsOutput += number1 + ", ";
+          resultsOutput += number2 + ", ";
+          resultsOutput += number3 + ", ";
+          resultsOutput += number4 + ".\n"; 
+          resultsOutput += "The product is " + product + ".\n";
+          resultsOutput += "Integers over six: " + overSix + ".\n";
+          resultsOutput += "Integers under six: " + underSix + ".";
+
+          document.getElementById("results").value = resultsOutput;
+   }
+  }
+
+</script>
+
+<div id="flip">Show/Hide Instructions</div>
+  <div id="instruct-panel">
+    <p>Input four integers that uses a form textarea to display the inputted numbers, how many integers were less than 6, how many were equal to 6, how many integers were greater than 6, and the product of the 4 integers.</p>
+  </div><br><br>
+
+<form name="integerCalc" id="integerCalc">
+  <label for="number1">First number:</label><br>
+  <input type="number" name="number1" id="number1"><br><br>
+  <label for="number2">Second number:</label><br>
+  <input type="number" name="number2" id="number2"><br><br>
+  <label for="number3">Third number:</label><br>
+  <input type="number" name="number3" id="number3"><br><br>
+  <label for="number4">Fourth number:</label><br>
+  <input type="number" name="number4" id="number4"><br><br>
+  <input type="button" onclick="process()" value="Submit" id="submit">
+  <input type="reset" id="reset"><br><br>
+  <label for="results">Results:</label><br>
+  <textarea name="Results" id="results" readonly rows="6" cols="40"></textarea>
+</form>
+
+
+<!-- End Main Content -->
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
