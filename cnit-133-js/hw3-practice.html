@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 3 for JavaScript, jQuery, AJAX">
+  <title>Homework 3</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">3</span> Short Excercises</h1>
+</header>
+
+<main>
+
+<!-- Excercise 1 -->
+
+<h2>Excercise 1</h2>
+
+<script>
+  function area1() {
+
+    // reset error
+
+    document.getElementById("errorOut1").innerHTML = " ";
+
+    // declare variables 
+
+    var w1, l1;
+    w1 = 0;
+    l1 = 0;
+
+    // get values from form fields
+
+    w1 = document.getElementById("width1").value; 
+    l1 = document.getElementById("length1").value; 
+
+    // error messages
+
+    var errorW = "width is invalid";
+    var errorL = "length is invalid"
+
+    if ( isNaN(w1)) 
+      document.getElementById("errorOut1").innerHTML = errorW;
+      else {
+        if (isNaN(l1)) {
+        document.getElementById("errorOut1").innerHTML = errorL;
+        document.getElementById("area1result").value = " ";  
+        }
+        else {
+          w1 = parseFloat(document.getElementById("width1").value);
+          l1 = parseFloat(document.getElementById("length1").value);
+          var product = w1 * l1;
+          var prodtoFixed = product.toFixed(2)
+          document.getElementById("area1result").value = prodtoFixed;
+        }
+      }
+    }
+</script>
+
+<form name="form1" id="form1">
+  <label for="width1">Width:</label>
+  <input type="text" id="width1" name="width1"><br><br>
+  <label for="length1">Length:</label>
+  <input type="text" id="length1" name="length1"><br><br>
+  <div id="errorOut1"></div>
+  <input type="button" value="Calculate" onclick="area1()"><br><br>
+  <label for="area1result">Area:</label>
+  <input type="text" id="area1result" name="area1result">
+</form>
+
+<!-- Excercise 1a -->
+
+<h2>Excercise 1a</h2>
+
+<script>
+  function area1a() {
+
+    // reset error
+
+    document.getElementById("errorOut1a").innerHTML = " ";
+
+    // declare variables 
+
+    var w1a, l1a;
+    w1a = 0;
+    l1a = 0;
+
+    // get values from form fields
+
+    w1a = document.getElementById("width1a").value; 
+    l1a = document.getElementById("length1a").value; 
+
+    // error messages
+
+    var errorW = "width is invalid";
+    var errorL = "length is invalid"
+
+    if ( isNaN(w1a)) 
+      document.getElementById("errorOut1a").innerHTML = errorW;
+      else {
+        if (isNaN(l1a)) {
+        document.getElementById("errorOut1a").innerHTML = errorL;
+        document.getElementById("area1aresult").value = " ";  
+        }
+        else {
+          w1 = parseFloat(document.getElementById("width1a").value);
+          l1 = parseFloat(document.getElementById("length1a").value);
+          var product = w1a * l1a;
+          var prodtoFixed = product.toFixed(2)
+          document.getElementById("area1aresult").value = prodtoFixed;
+        }
+      }
+    }
+</script>
+
+<form name="form1a" id="form1a">
+  <label for="width1a">Width:</label>
+  <input type="text" id="width1a" name="width1a"><br><br>
+  <label for="length1a">Length:</label>
+  <input type="text" id="length1a" name="length1a" onkeyup="area1a()"><br><br>
+  <div id="errorOut1a"></div>
+  <input type="text" id="area1aresult" name="area1aresult">
+</form>
+
+<!-- Excercise 2 -->
+
+<h2>Excercise 2</h2>
+
+<script>
+
+function bmi2() {
+
+  var weight2, height2;
+  weight2 = 0;
+  height2 = 0;
+
+  weight2 = document.getElementById("weight2").value;
+  height2 = document.getElementById("height2").value;
+
+}
+
+</script>
+
+<form name="form2" id="form2">
+  <label for="weight2">Weight: </label>
+  <input type="text" id="weight2" name="weight2"><br><br>
+  <label for="height2">Height: </label>
+  <input type="text" id="height2" name="height2"><br><br>
+  <div id="errorOut1"></div>
+  <input type="button" value="Calculate" onclick="bmi2()"><br><br>
+  <label for="bmi2result">BMI: </label>
+  <input type="text" id="bmi2result" name="bmi2result">
+</form>
+
+<!-- Excercise 7 -->
+
+<h2>Excercise 7</h2>
+
+<h3>Guess a Number</h3>
+<form name="form7" id="form7">
+  <strong>Guess a number between 1 and 5</strong><br>
+  <input type="text" id="guess" name="guess" size="3" value="">
+  <input type="button" value="check it" onclick="startGuess()">
+  <input type="reset" value="reset">
+</form>
+
+<div id="result7"></div>
+
+
+<script>
+
+function startGuess() {
+
+  var num = document.forms['form7'].elements['guess'].value;
+
+  if (num > 5 || num < 1 || isNaN(num)) {
+    document.getElementById("result7").innerHTML = "dude, it's gotta be a number between 1 and 5.";
+  }
+  else {
+    guess();
+  }
+} // end startGuess
+
+  function guess() {
+
+    var num = document.forms["form7"].elements["guess"].value;
+
+    var rightAns = Math.floor(1 + Math.random() * 5);
+
+    if (rightAns == num) {
+      document.getElementById("result7").innerHTML = "yeah";
+    }
+    else {
+      document.getElementById("result7").innerHTML = "nah. the numnber was " + rightAns;
+    }
+  }
+
+
+
+
+</script>
+
+<!-- end excercises-->
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

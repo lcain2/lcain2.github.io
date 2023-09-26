@@ -21,7 +21,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-h4 {
+h4, .h4 {
     font-size: 1.1rem;
 }
 
@@ -41,6 +41,10 @@ p.giant {
     font-size: 5rem; 
     margin-top: 1rem;
     margin-bottom: 4rem;
+}
+
+p.large {
+    font-size: 1.1rem; 
 }
 
 .right-align {
@@ -264,6 +268,10 @@ h1 span.hw-part {
     background: #d2f7e0;
 }
 
+.panel-white {
+    background: #fff;
+}
+
 @media (max-width: 992px) {
     .panel_group {
         display: block;
@@ -299,24 +307,24 @@ form {
 input[type=submit], input[type=button], input[type=reset], button {
     cursor: pointer;
 }
-input[type=text] {
+input[type=text], input[type=number], input[type=email] {
     padding: .3rem .5rem;
     font-size: 1em;
     font-family: inherit;
 }
 
-form .button, .button-small {
+input.button, .button-small {
     padding: .45rem .8rem;
     font-size: 1rem;
     border: none;
     margin: .5rem 1rem .5rem 0;
 }
 
-form .button-secondary {
+input.button-secondary {
     background: #555;
 }
 
-form .reset {
+input.reset {
     align-self: flex-end;
     background: none;
     border: none;
@@ -326,7 +334,7 @@ form .reset {
     text-underline-offset: 2px;
 }
     
-form .reset:hover {
+input.reset:hover {
     color: rgb(160, 0, 200);
     text-decoration: none;
 }
@@ -347,6 +355,16 @@ th {
 td {
     padding: .5rem;
     border: 1px solid #ccc;
+}
+
+/* jQuery UI */
+
+.ui-tooltip {
+    max-width: 300px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
 }
 
 /* Homework 2 */
@@ -381,6 +399,13 @@ td {
     form#exchange-rates {
         width: 100%;
     }
+
+/* Homework 3 */
+
+.hw3 #gradeEntry input[type=text], .hw3 input.align-right {
+    text-align: right;   
+}
+
 
 
 

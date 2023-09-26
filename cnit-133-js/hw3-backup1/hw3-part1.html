@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript to Calculate a Student's Average Percentage and Final Letter Grade">
+  <title>Homework 3: Part 1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+
+  <script>
+      
+    function finalGrade() {
+
+    // clear old results/validation on form submit
+
+      document.getElementById("validation").innerHTML = "";
+      document.getElementById("results").innerHTML = "";
+
+      // assign variables to fields
+
+      hwAvgIn = parseFloat(document.forms["gradeEntry"].elements["hwAvgIn"].value);
+      midExamIn = parseFloat(document.forms["gradeEntry"].elements["midExamIn"].value);
+      finalExamIn = parseFloat(document.forms["gradeEntry"].elements["finalExamIn"].value);
+      participationIn = parseFloat(document.forms["gradeEntry"].elements["participationIn"].value);
+      
+      // convert to numbers from strings to integers
+
+      hwAvg = parseInt(hwAvgIn);
+      midExam = parseInt(midExamIn);
+      finalExam = parseInt(finalExamIn);
+      participation = parseInt(participationIn);
+
+      // check to see if they are numbers & display error message if not
+
+      var errorOutput = "You must enter a number for each field between 0 and 100.";
+
+      if (isNaN(hwAvg) || isNaN(midExam) || isNaN(finalExam) || isNaN(participation) || hwAvg < 0 || hwAvg > 100  || midExam < 0 || midExam > 100 || finalExam < 0 || finalExam > 100 || participation < 0 || participation > 100) {
+        document.getElementById("validation").innerHTML = "<div id=\"err\" class=\"error\">" + errorOutput + "</div>";
+      }
+      else { // if numbers are valid, find average
+
+        // find average
+
+        average = Math.round((.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * participation));
+
+        // find lettergrade
+     
+        if (average >= 0 && average <= 59) {
+          letterGrade = "F";
+        }
+        else if (average >= 60 && average <= 69) {
+          letterGrade = "D";
+        }
+        else if (average >= 70 && average <= 79) {
+          letterGrade = "C";
+        }
+        else if (average >= 80 && average <= 89) {
+          letterGrade = "B";
+        }
+        else {
+          letterGrade = "A";
+        }   
+        
+        // D & F retake warning
+        
+        if (letterGrade == "F" || letterGrade == "D") {
+          retakeWarning = "<div class=\"error\">Student must retake the course</div>";
+        }
+        else {
+          retakeWarning = "";
+        }
+
+        // show results
+
+        var resultsOutput = "";
+        resultsOutput += "<div id=\"results-message\">";
+        resultsOutput += "<h3>Results:</h3>";
+        resultsOutput += "<p class=\"large\">";
+        resultsOutput += "Final Average: " + average + "% <br>";
+        resultsOutput += "Letter Grade: " + letterGrade + "<br>";
+        resultsOutput += retakeWarning;
+        resultsOutput += "</p>";
+        resultsOutput += "</div>";
+
+        document.getElementById("results").innerHTML = resultsOutput;
+
+      }  
+
+    }
+
+    function formReset() {
+  
+      document.getElementById("validation").innerHTML = "";
+    
+      document.getElementById("results").innerHTML = "";
+
+    }
+
+    </script>
+
+</head>
+
+<body class="hw-sub hw3 hw3-1">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw3.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 3</a>
+    <a href="hw3-part1.html" class="current-page">Part 1</a>
+    <a href="hw3-part2.html">Part 2</a>
+    <a href="hw3-extra.html">Extra Credit</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">3</span> <span class="hw-part">Part 1</span></h1>
+</header>
+
+<main>
+    <h2>Student Grades</h2>
+
+    <div class="panel_group">
+      <div class="panel">
+        <form name="gradeEntry" id="gradeEntry">
+          <div class="field-group"><label for="hwAvgIn">Homework Average:</label> <input type="text" id="hwAvgIn" name="hwAvgIn" size="3"> %</div>
+            <div class="field-group"><label for="midExamIn">Mid-Term Exam Score:</label> <input type="text" id="midExamIn" name="midExamIn" size="3"> %</div>
+            <div class="field-group"><label for="finalExamIn">Final Exam Score:</label> <input type="text" id="finalExamIn" name="finalExamIn" size="3"> %</div>
+            <div class="field-group"><label for="participationIn">Participation Score:</label> <input type="text" id="participationIn" name="participationIn" size="3"> %</div>
+            <div id="validation" class="validation"></div>
+            <input type="button" onclick="finalGrade()" value="Submit" class="button submit">
+            <input type="reset" value="Reset" onclick="formReset()" class="reset">
+        </form>
+      </div>
+      <div class="panel panel-green panel-results">
+        <div id="results" class="results"></div>
+        </div>
+      </div> <!-- end panel group -->
+
+
+    <div class="back-link-bottom">
+      <a href="index.html"><span class="material-symbols-outlined">
+        keyboard_return</span> Homework List</a> 
+    </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

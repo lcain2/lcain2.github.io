@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript that Produces Random Multiplication Equations and Checks Answers">
+  <title>Homework 3: Extra Credit</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body class="hw-sub hw3 hw3-3" onload="generateNum()">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw3.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 3</a>
+    <a href="hw3-part1.html">Part 1</a>
+    <a href="hw3-part2.html">Part 2</a>
+    <a href="hw3-extra.html" class="current-page">Extra Credit</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">3</span> <span class="hw-part">Extra Credit</span></h1>
+</header>
+
+<script>
+
+var num1, num2, answer;
+ 
+function generateNum() {
+
+  // clear old entry & results
+
+  document.getElementById("answerBox").innerHTML = "";
+  document.getElementById("answerGuess").value = "";
+
+  // generate random numbers & product
+
+  num1 = Math.floor(Math.random() * 10);
+  num2 = Math.floor(Math.random() * 10);
+  answer = num1 * num2;
+
+  // display numbers in multiplication question
+
+  document.getElementById("num1").innerHTML = num1;
+  document.getElementById("num2").innerHTML = num2;
+
+}
+
+function checkAnswer() {
+
+  // clear old errors & results
+
+  document.getElementById("validation").innerHTML = "";
+  document.getElementById("answerBox").innerHTML = "";
+
+  // get user answer
+
+  var answerGuess = parseFloat(document.forms["answerEntry"].elements["answerGuess"].value);
+
+  // declare feedback messages
+
+  var correctMsg = "<h4>Very good!  " + num1 + " x " + num2 + "  = " + answer + ".</h4>";
+  correctMsg += "<p>Do you want to keep playing?</p>";
+  correctMsg += "<input type=\"button\" value=\"Yes\" onclick=\"generateNum()\" class=\"button submit\">";
+  correctMsg += "<input type=\"button\" value=\"No\" onclick=\"end()\" class=\"button submit\">";
+
+  var wrongMsg = "<p class=\"h4\">No. Please try again.</p>";
+
+  var errorOutput = "You must enter a number.";
+
+  // show feedback messages
+
+  if (isNaN(answerGuess)) {
+    document.getElementById("validation").innerHTML = "<div id=\"err\" class=\"error\">" + errorOutput + "</div>"; 
+  }
+  else if (answerGuess == answer) {
+    document.getElementById("answerBox").innerHTML = correctMsg;
+  }
+  else {
+    document.getElementById("answerBox").innerHTML = wrongMsg; 
+  }
+  
+}
+
+// end game
+
+function end() {
+
+  var endMsg = "<p class=\"h4\">Thanks for playing, see you next time.</p>"
+  endMsg += "<input type=\"button\" value=\"Play Again\" onclick=\"generateNum()\" class=\"button submit\">";
+
+  document.getElementById("answerBox").innerHTML = endMsg;
+}
+
+</script>
+
+<main>
+  <h2>Producing a Random Multiplication Equation and Checking the Answer</h2>
+
+  <div class="panel_group">
+    <div class="panel panel-green">
+      <h3>How much is <span id="num1"></span> times <span id="num2"></span>?</h3>
+    
+      <form name="answerEntry" id="answerEntry">
+        <label for="answer">Your Answer:</label><br>
+        <input type="number" name="answerGuess" id="answerGuess">
+        <div id="validation" class="validation"></div>
+        <input type="button"  onclick="checkAnswer()" value="Check Answer" id="answerButton" class="button submit">
+      </form>
+      <div id="answerBox"></div>
+    </div>
+  </div>  
+
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
