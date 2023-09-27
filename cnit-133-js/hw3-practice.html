@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/custom-styles.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body class="hw-sub">
@@ -80,6 +83,8 @@
   <input type="text" id="area1result" name="area1result">
 </form>
 
+<hr>
+
 <!-- Excercise 1a -->
 
 <h2>Excercise 1a</h2>
@@ -134,35 +139,320 @@
   <input type="text" id="area1aresult" name="area1aresult">
 </form>
 
+<hr>
+
 <!-- Excercise 2 -->
 
 <h2>Excercise 2</h2>
 
 <script>
 
+$(document).ready(function() {
+  $("#form2").validate({
+    //Rules for each input item
+    rules: 
+    {
+      height2: {required: true, number: true},
+      weight2: {required: true, number: true}
+    }
+  });
+});
+
 function bmi2() {
+  if($("#form2").valid()) {
 
-  var weight2, height2;
-  weight2 = 0;
-  height2 = 0;
-
-  weight2 = document.getElementById("weight2").value;
-  height2 = document.getElementById("height2").value;
-
+  var weight2 = document.getElementById("weight2").value;
+  var height2 = document.getElementById("height2").value;
+    
+  var bodymi = (weight2/(height2*height2))*703;
+  var bodymiFixed = bodymi.toFixed(2);
+  document.getElementById("bmi2result").value = bodymiFixed;
+  }
 }
 
 </script>
 
 <form name="form2" id="form2">
-  <label for="weight2">Weight: </label>
+  <label for="weight2">Weight (lb): </label>
   <input type="text" id="weight2" name="weight2"><br><br>
-  <label for="height2">Height: </label>
+  <label for="height2">Height (in): </label>
   <input type="text" id="height2" name="height2"><br><br>
   <div id="errorOut1"></div>
   <input type="button" value="Calculate" onclick="bmi2()"><br><br>
   <label for="bmi2result">BMI: </label>
   <input type="text" id="bmi2result" name="bmi2result">
 </form>
+
+<hr>
+
+<!-- Excercise 3 -->
+
+<h2>Excercise 3</h2>
+
+<h3>Employee Rate and Status</h3>
+
+<form name="form3" id="form3">
+  <label for="rate3">Enter hourly rate for an employee: </label>
+  <input type="number" id="rate3" name="rate3">
+  <input type="button" value="Submit" onclick="position3()">
+  <div id="form3results"></div>
+</form>
+
+<script>
+  function position3() {
+    var input = parseFloat(document.getElementById("rate3").value); 
+    
+    var status = ( input >= 10 && input <= 75 ) ? 
+    returnPosition(input) : document.getElementById("form3results").innerHTML=("Invalid input");
+  }
+  function returnPosition(hrate) {
+    if (hrate <= 19) 
+    document.getElementById("form3results").innerHTML=("Position is Web Trainee");
+    else if (hrate >= 20 && hrate <= 49) 
+    document.getElementById("form3results").innerHTML=("Position is Web Designer");
+    else 
+    document.getElementById("form3results").innerHTML=("Position is Web Programmer");
+
+  
+  }
+
+</script>
+
+<hr>
+
+<!-- Excercise 4 -->
+
+<h2>Excercise 4</h2>
+
+<h3>Switch Example</h3>
+
+<form name="form4" id="form4">
+  <p>Enter your rating as a 1 digit number for this site:<br>(1-excellent, 2-good, 3-fair, 4-poor)</p>
+  <label for="rating4">Rating: </label>
+  <input type="number" id="rating4" name="rating4">
+  <input type="button" value="Submit" onclick="myRating()">
+  <div id="form4results"></div>
+</form>
+
+<script>
+
+function myRating() {
+
+  var ratingIn = document.getElementById("rating4").value;
+
+  switch (ratingIn) {
+    case "1": 
+    ratingMsg=("You rated this site as excellent");
+    break;
+    case "2":
+    ratingMsg=("You rated this site as good");
+    break;
+    case "3":
+    ratingMsg=("You rated this site as fair");
+    break;
+    case "4":
+    ratingMsg=("You rated this site as poor");
+    break;
+  }
+
+  document.getElementById("form4results").innerHTML = ratingMsg;
+}
+
+</script>
+
+<hr>
+
+<!-- Excercise 5 -->
+
+<h2>Excercise 5</h2>
+
+<h3>Calculate Final Grade</h3>
+
+<form name="form5" id="form5">
+  <label for="gpa5">Your GPA: </label>
+  <input type="text" id="gpa5" name="gpa5" title="We ask for your Grade Point Average only for statistical purposes. A valid GPA is between 0 and 4.0">
+  <br>
+  <label for="homework5">CNIT 133 Homework Average: </label>
+  <input type="text" id="homework5" name="homework5">
+  <br>
+  <label for="final5">CNIT 133 Final Exam: </label>
+  <input type="text" id="final5" name="final5">
+  <br>
+  <div id ="errOut5"></div> 
+  <br>
+  <input type="button" value="Submit" onclick="finalGrade5()">
+  <br>
+  <div id="form5results"></div>
+</form>
+
+<script>
+  /*jQuery code for tooltip  */
+  $(function() {
+  $( document ).tooltip();
+  });
+
+  function finalGrade5() {
+
+    //declare variables 
+
+    var gpa5, hw5, fe5, gpaP5, hwP5, feP5, final_avg5, fin_grade5;
+    
+    var errMsg1="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid HW Avg or Final Exam</span>";
+    var errMsg2="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid GPA</span>";
+    
+    // get values from form using getElementByID
+
+    gpa5 = document.getElementById("gpa5").value;
+    hw5 = document.getElementById("homework5").value;
+    fe5 = document.getElementById("final5").value;
+
+    // validate
+
+    if ( isNaN(hw5) || isNaN(fe5) || hw5=="" || fe5==""|| hw5 > 100 || hw5 < 0 || fe5 < 0 || fe5 > 100 )
+    {
+     document.getElementById("errOut5").innerHTML = errMsg1;
+    }
+    else if ( gpa5 < 0 || gpa5 > 4 || gpa5=="" || isNaN(gpa5) )
+    { 
+    document.getElementById("errOut5").innerHTML = errMsg2;
+    }
+    else {
+      // convert input string to numeric
+      gpaP5 = parseFloat(gpa5);
+      hwP5 = parseInt(hw5);
+      feP5 = parseInt(fe5);
+
+      // calculate final average
+      final_avg5 = (.7 * hwP5) + (.3 * feP5);
+      
+      //Note: you must use true in switch satement..then case ranges for final_avg will work
+
+      switch(true) {
+        case (final_avg5 >= 90):
+        document.getElementById("form5results").innerHTML = ("The final average is " + Math.round( final_avg5 ) +  
+"<br>The final grade is A<br>Excellent work!")
+          break;
+          case (final_avg5 >= 80):
+          document.getElementById("form5results").innerHTML = ("The final average is " + Math.round( final_avg5 ) +  
+"<br>The final grade is B<br>Good work!")
+          break;
+
+       case (final_avg5 >= 70):
+          document.getElementById("form5results").innerHTML = ("The final average is " + Math.round( final_avg5 ) +  
+"<br>The final grade is C<br>Average work!") 
+          break;
+
+       case (final_avg5 >= 60):
+          document.getElementById("form5results").innerHTML = ("The final average is " + Math.round( final_avg5 ) +  
+"<br>The final grade is D<br>Poor work!<br>You must re-take the course")
+          break;
+
+       default:
+          document.getElementById("form5results").innerHTML = ("The final average is " + Math.round( final_avg5 ) +  
+"<br>The final grade is F\nFailing work!<br>You must re-take the course")
+
+//end switch logic
+      }
+    }
+
+  }
+</script>
+  
+
+<hr>
+
+<!-- Excercise 6a -->
+
+<h2>Excercise 6a</h2>
+
+<h3>Flip a Coin</h3>
+
+<form name="form6a" id="form6a">
+  <input type="button" value="flip" id="flip-btn" class="button" onclick="toss6a()">
+  <br><br>
+  <label>Heads</label><input type="text" id="heads6a" name="heads6a"><br>
+  <label>Tails</label><input type="text" id="tails6a" name="tails6a">
+</form>
+
+<script>
+
+  var heads6a = 0;
+  var tails6a = 0;
+
+  function toss6a() 
+  {
+    if ( flip6a() )
+      ++heads6a;
+    else
+      ++tails6a;
+
+    document.forms["form6a"].elements["heads6a"].value = heads6a;
+    document.forms["form6a"].elements["tails6a"].value = tails6a;  
+  }
+
+  function flip6a() {
+    return ( Math.floor ( Math.random() * 2) === 1 ?
+    true : false );
+  }
+
+  console.log(heads6a);
+  console.log(tails6a);
+  console.log(flip6a());
+
+</script>
+
+<hr>
+
+<!-- Excercise 6b -->
+
+<h2>Excercise 6b</h2>
+
+<h3>Flip a Coin with Image</h3>
+
+
+<form name="form6b" id="form6b">
+  <input type="button" value="flip" id="flip-btn" class="button" onclick="toss6b()">
+  <textarea id="textarea6b" cols="9" rows="5"></textarea>
+  <br><br>
+  <label>Heads</label><input type="text" id="heads6b" name="heads6b"><br>
+  <label>Tails</label><input type="text" id="tails6b" name="tails6b">
+</form>
+
+<script>
+
+  var heads6b = 0;
+  var tails6b = 0;
+
+  function toss6b() 
+  {
+    if ( flip6b() ) {
+      ++heads6b;
+      $("textarea#textarea6b").css({
+                    "backgroundImage": "url('assets/images/heads.jpg')",
+                    "backgroundRepeat": "no-repeat"
+                })
+              }
+    else {
+      ++tails6b;
+      $("textarea#textarea6b").css({
+                    "backgroundImage": "url('assets/images/tails.jpg')",
+                    "backgroundRepeat": "no-repeat"
+                })
+            }
+
+    document.forms["form6b"].elements["heads6b"].value = heads6b;
+    document.forms["form6b"].elements["tails6b"].value = tails6b; 
+  } 
+  
+
+  function flip6b() {
+    return ( Math.floor ( Math.random() * 2) === 1 ?
+    true : false );
+  }
+
+</script>
+
+<hr>
 
 <!-- Excercise 7 -->
 
@@ -207,10 +497,93 @@ function startGuess() {
     }
   }
 
-
-
-
 </script>
+
+<hr>
+
+<!-- Excercise 8 -->
+
+<h2>Excercise 8</h2>
+
+<h3>Dynamic Form</h3>
+
+<form name="the_form">
+  <h3>1. Do you like fine wines?</h3>
+<input type="radio" name="wine" 
+	onClick="hideAll(); changeDiv('wineYes','block');">Yes
+<input type="radio" name="wine" 
+	onClick="hideAll(); changeDiv('wineNo','block');">No
+
+<div id="wineYes" style="margin-left:30px; display:none">
+<h3>Do you like Red or White Wines?</h3>
+<input type="radio" name="wineType" 
+	onClick="changeDiv('wineWhite','none'); changeDiv('wineRed','block');">Red
+<input type="radio" name="wineType" 
+	onClick="changeDiv('wineRed','none'); changeDiv('wineWhite','block');">White
+</div>
+
+<div id="wineRed" style="margin-left:30px; display:none;">
+<h4>Penfolds Grange Hermitage</h4>
+<img  alt="image of red wine" src="redwine.png" style="float:left; margin:0 4px 4px 0;" />
+<p>Max Schubert the creator of Australia's greatest wine icon, originally had cabernet sauvignon in mind for his new wine style which he first trialled in 1951 after a trip to France. He wanted to make a red wine that would stay "alive" for at least 20 years and be comparable to a great Bordeaux. But there was not a good supply of cabernet available so he settled for shiraz.</p>
+
+<p>How cruel were the wine critics and experts of the 1950s to those first releases of Penfolds Grange! "Schubert, I congratulate you," said one leading wine man of the day. "A very good dry port, which no one in their right mind will buy - let alone drink." The bad reception led the Penfolds board to ban production of Grange by the 1957 vintage. But Schubert continued to make it in secret.</p>
+
+<p>The so-called Hidden Granges of 1957, 1958 and 1959 were made by Schubert with the aid of loyal employees who hid Grange behind a false wall at the the Penfolds Magill Cellars. Cellar hands were paid in wine and brandy to bottle those secret Granges on their days off.</p>
+
+<p>The board changed its mind in 1960 when it retasted Grange with some age (which is why Grange today is always released with at least 5 years ageing in new American Oak barrels).</p>
+
+<p>The first trial Grange, the 1951 vintage consisted of five 300 litre hogsheads. It was bottled in whatever bottles Schubert could get his hands on and given the simplest of labels. <b>Today the 1951 vintage is the most prized Australian wine on the auction market attracting bids of more than $30,000 (AUD) a bottle !!!</b></p>
+
+<p>Max Schubert christened his creation Grange Hermitage because hermitage was a common synonym at the time for shiraz. However, from the 1989 vintage onwards, it was re-labelled Penfolds Grange because French geographical place names such as Hermitage were banned from our labels.</p>
+</div>
+
+<div id="wineWhite" style="margin-left:30px; display:none;">
+<h4>White Wine Holds Its Own </h4>
+<img alt="white wine" src="whitewine.jpg" style="float:left; margin: 0 4px 4px 0" />
+<p>The Best dry white wines are not just for beginning wine drinkers. Some of the most celebrated wines in the world are dry white wines! What are we talking about when we say "dry white wines"?
+ Simple - any white wine varietal that has residual sugar well under 1%, that's it. It can be a Chardonnay, Riesling, Sauvignon Blanc, Pinot Gris, and on and on. There are so many to talk about.</p>
+</div>
+
+<div id="wineNo" style="margin-left:30px; display:none; text-align:center;">
+<h4>This is the <span style="color:#900000; text-decoration: line-through; font-size:26px; text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -18px 18px #f20;
+background:#000;">No Wine</span> section.</h4>
+<img alt="" src="http://3.bp.blogspot.com/_hVGIzjo3eH4/SeH6dWRqIKI/AAAAAAAADpg/qMqemymBV5I/S330/!cid_image001.gif" />
+</div>
+</form>
+
+<script>
+  function changeDiv(the_div,the_change)
+  {
+    var the_style = getStyleObject(the_div);
+    if (the_style != false)
+    {
+      the_style.display = the_change;
+    }
+  }
+  
+  
+  function hideAll()
+  {
+    changeDiv("wineYes","none");
+    changeDiv("wineNo","none");
+    changeDiv("wineRed","none");
+    changeDiv("wineWhite","none");
+  }
+  
+  
+  function getStyleObject(objectId) {
+    if (document.getElementById && document.getElementById(objectId)) {
+      return document.getElementById(objectId).style;
+    } else if (document.all && document.all(objectId)) {
+      return document.all(objectId).style;
+    } else {
+      return false;
+    }
+  }
+  </script>
+
+<hr>
 
 <!-- end excercises-->
 </main>
