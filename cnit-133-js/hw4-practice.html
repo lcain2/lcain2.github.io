@@ -29,16 +29,126 @@
 
 <!-- Excercise 1 -->
 
-<h2>Excercise 1</h2>
+<h2>Exercise 1: using the For statement</h2>
+
+<div id="results1" class="draggable" style="width: 500px; background: lightcyan; padding: 30px;">
+</div>
 
 <script>
- 
+
+  // draggable div
+
+  $( function() {
+    $( ".draggable" ).draggable();
+  } );
+
+  // Using a for statement, sum the even integers from 2 to 12 inclusive to display the result, along with some accompanying text.
+
+  var sum1 = 0;
+
+  for (var number1 = 2; number1 <= 12; number1 +=2) {
+
+    sum1 += number1;
+
+  }
+
+  document.getElementById("results1").innerHTML = "<p>The sum of the even integers from 2 to 12 inclusive is " + sum1 + "</p>";
+
 </script>
 
 <hr>
 
+<!-- Excercise 2 -->
+
+<h2>Exercise 2: using While statement</h2>
+
+<div id="results2" class="draggable" style="width: 500px; background: lightcyan; padding: 30px;">
+</div>
+
+<script>
+
+var sum2 = 0, product2 = 1, number2 = 1;
+
+while (number2 <= 11) {
+
+sum2 += number2;
+product2 *= number2;
+number2 = number2 + 2;
+
+}
+
+document.getElementById("results2").innerHTML = "<p>The Product of the odd numbers from 1 to 11 inclusive is " + product2 + "</p> <p>The Sum of the odd numbers from 1 to 11 inclusive is " + sum2;
+
+</script>
+
+<hr>
+
+<!-- Excercise 3 // SKIPPED VALIDATION PARTS, USED STYLES INSTEAD OF TAGS -->
+
+<h2>Exercise 3: using Switch and For statement</h2>
+
+<form name="myform3">
+  
+  Select a physical tag type:
+             1 for strong, 2 for emphasize, 3 for underlined: 
+  <input type="text" id="input3" size="4"><br><br>
+  
+  Select 1 to 10 lines to write: 
+  <input type="text" id="lines3" size="4"><br><br>
+  
+  <div id="validation3"></div>
+  <br>
+  <input type="button" id="proc3" value="SUBMIT" onclick="process3()">
+  <input type="reset" value="RESET" id="res3" onclick="reset3()"><br><br>
+  
+</form>
+  
+<div id="results3" style="width: 500px; background: lightgoldenrodyellow; padding: 30px;">
+</div>
+
+<script>
+
+function reset3() {
+  document.getElementById("results3").innerHTML = ""; 
+}
+
+function process3() {
+
+document.getElementById("results3").innerHTML = "";
+
+var style3, numlines3;
+
+style3 = document.getElementById("input3").value;
+numlines3 = document.getElementById("lines3").value;
+
+switch (style3)
+{
+  case "1": 
+  document.getElementById("results3").style.fontWeight = "bold";
+  break;
+  case "2": 
+  document.getElementById("results3").style.fontStyle = "italic";
+  break;
+  case "3": 
+  document.getElementById("results3").style.textDecoration = "underline";
+  break;
+  default:
+  document.getElementById("results3").innerHTML = "";
+}
+
+for (var i = 1; i <= numlines3; ++i ) {
+  document.getElementById("results3").innerHTML += "Line #" + i + "<br>";  
+}
+
+}
+
+</script>
+
+<hr>
 
 <!-- end excercises-->
+
+
 </main>
 
 </div>

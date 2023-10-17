@@ -29,22 +29,16 @@
 <main>
   <h2>Asterisk Box Builder</h2>
 
-  <div class="panel_group">
+  <form name="integerRequest" id="integerRequest">
+    <label for="integerIn">Enter an integer between 2 and 10:</label>
+    <input type="text" name="integerIn" id="integerIn" size="2">
+    <div id="validation"></div>
+    <input type="button" id="submit" value="submit" class="button" onclick="buildBox()">
+    <input type="reset" id="reset" value="reset" class="reset" onclick="resetMe()">
 
-  <div class="panel">
-    <form name="integerRequest" id="integerRequest">
-      <label for="integerIn">Enter an integer between 2 and 10:</label>
-      <input type="text" name="integerIn" id="integerIn" size="2">
-      <div id="validation"></div>
-      <input type="button" id="submit" value="submit" class="button" onclick="buildBox()">
-      <input type="reset" id="reset" value="reset" class="reset" onclick="resetMe()">
-    </form>
-  </div>
-  <div class="panel panel-green">
-    <div id="myBox"></div>
-  </div>
+  </form>
 
-</div>
+  <div id="myBox"></div>
 
   <script>
 
@@ -56,25 +50,23 @@
 
   }
 
+
   function buildBox() {
 
-    // declare variables
-
-    var i, star, stars, spaces, rows, starRow, middleRows;
-
-    i = document.getElementById("integerIn").value;;
-    star = "*";
-    stars = i;
-    rows = i - 2;
-    spaces = i * 2 - 2;
-    starRow = "";
-    middleRows = "";
-    errorOutput = "You must enter an integer between 2 and 10";
-
-    // clear errors & old entries
+    // clear old boxes & errors
 
     document.getElementById("validation").innerHTML = "";
     document.getElementById("myBox").innerHTML = "";
+
+    // declare variables
+
+    var i, spaces, rows, stars, errorOutput;
+
+    i = document.getElementById("integerIn").value;
+    spaces = i * 2 - 2;
+    rows = i - 2;
+    stars = 1;
+    errorOutput = "You must enter an integer between 2 and 10";
 
     // validate number
 
@@ -86,40 +78,61 @@
 
     // generate top & bottom rows
 
+    function sideX() {
+
+      var stars = i;
+
       while ( stars > 0 ) {
-        starRow += star + " ";
+        document.write("* ");
         stars--;
       }
 
+      document.write("<br>");
+
+    };
+
     // generate middle rows
 
-    for (var row = 1; row <= rows; row++ ) {
-    
-      for (var i = 1; i <= 1; i++ ) {
-        middleRows += "*";
-      }
+    function sideY() {   
 
-      for (var i = 1; i < spaces; i++ ) { 
-        middleRows += " ";
-      }
-
+      for (var row = 1; row <= rows; row++ ) {
+      
       for (var i = 1; i <= 1; i++ ) {
-        middleRows += "*<br>";
+                  document.write( "*" );
+                  }
+
+        for (var i = 1; i < spaces; i++ ) { 
+            document.write( " " );
+          }
+
+          for (var i = 1; i <= 1; i++ ) {
+                  document.write( "* <br>" );
+                  }
+
       }
 
     }
 
+    // print all sides
+
+    document.write( "<pre>" );
+    sideX();
+    sideY();
+    sideX();
+    document.write( "</pre>" ); 
+
     var boxOutput = "<pre>";
-    boxOutput += starRow + "<br>";
-    boxOutput += middleRows;
-    boxOutput += starRow;
+    boxOutput += sideX();
+    boxOutput += sideY();
+    boxOutput += sideX();
     boxOutput += "</pre>";
 
     document.getElementById("myBox").innerHTML = boxOutput;
-  
-    }
 
-  }
+
+    } // end else
+
+  } // end function buildBox
 
   </script>
 

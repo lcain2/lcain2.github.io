@@ -66,6 +66,42 @@ img.width-150 {
     height: auto;
 }
 
+/* Homework 4 */
+
+body.hw4 {
+    background: url(../images/student.jpg) bottom left no-repeat, url(../images/elementarystudent.png) top right no-repeat, #fcffd0;
+}
+
+.hw4 .wrapper {
+    max-width: 60rem;
+} 
+
+.hw4 h1 {
+    color:#0056c2;
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.hw4 p.large {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.hw4 figure {
+    margin: 0;
+    padding: 0;
+}
+
+.hw4 figure img {
+    max-width: 100%;
+}
+
+.hw4 figcaption {
+    text-align: center;
+    font-size: .9em;
+    font-style: italic;
+}
+
 
 
 

@@ -423,11 +423,34 @@ td {
     text-align: right;   
 }
 
+/* Homework 4 */
 
+#dragme-sticker {
+    margin-top: 2rem;
+}
 
+.intRate-table th {
+    background-color: #A000C8;
+    color: white;
+}
+.intRate-table tr {
+    background-color: rgb(218, 253, 255);
+}
+.intRate-table tr:nth-child(even) {
+    background-color: rgb(245, 255, 218);
+}
 
+.koala-dress-up hr {
+    border: 3px double rgb(160, 0, 200); 
+    margin-top: 2rem;
+}
 
+.koala-dress-up h2 {
+    font-family: papyrus, "Bricolage Grotesque", sans-serif; 
+    font-size: 1.6em;
+}
 
-
-
-
+.koala-pic {
+   width: 400px;
+   float: left;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homework 3 for JavaScript, jQuery, AJAX">
+  <title>Homework 4 Practice</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+<!-- http://jqueryvalidation.org/rules -->
+</head>
+
+<body class="hw-sub">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+  <a href="index.html"><span class="material-symbols-outlined">
+    keyboard_return</span> Back to Homework List</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">4</span> Short Excercises</h1>
+</header>
+
+<main>
+
+
+<!-- Excercise 4 -->
+
+<h2>Exercise 4: using multiple For statements.</h2>
+
+<script>
+  var row, rate = 1, stars = 1, spaces, i; 
+  spaces = 6; 
+ 
+ // spaces on left side of diamond
+ // (top row), equal to number of rows
+ // using <pre> tag to maintain the format of the text entered 
+   document.write( "<pre>" );
+ 
+     for (var row = 1; row <= 9; row++ ) {
+ 
+         for (var i = 1; i < spaces; i++ ) {
+            document.write( " " );
+           }
+ 
+               for (var i = 1; i <= stars; i++ ) {
+                  document.write( "*" );
+                  }
+ 
+          document.write( "<br>" );
+ 
+         if ( row === 5 ) // reverse halfway through
+           rate *= -1;
+ 
+          stars += ( 2 * rate );
+          spaces -= rate;
+      }
+ 
+    document.write( "</pre>" );
+ </script>
+
+<!-- Excercise 5 // NOT DONE - DOESN'T WORK 
+  example w/ jquery: https://hills.ccsf.edu/~cdasilva/cnit133/loop5a.html
+  example w/out: https://hills.ccsf.edu/~cdasilva/cnit133/loop5.html 
+ -->
+
+<h2>Exercise 5: Looping through input fields.</h2>
+
+<form id="myform5">
+  <p>Input the monthly gross and the bonus for each employee:</p>
+  <table>
+    <tr>
+      <th>Employee</th>
+      <th>Monthly Gross</th>
+      <th>Bonus</th>
+    </tr>
+    <tr>
+      <td>Employee 1</td>
+      <td><input name="inGross1" id="inGross1" type="text"></td>
+      <td><input name="inBonus1" id="inBonus1" type="text"></td>
+    </tr>
+    <tr>
+      <td>Employee 2</td>
+      <td><input name="inGross2" id="inGross2" type="text"></td>
+      <td><input name="inBonus2" id="inBonus2" type="text"></td>
+    </tr>
+    <tr>
+      <td>Employee 3</td>
+      <td><input name="inGross3" id="inGross3" type="text"></td>
+      <td><input name="inBonus3" id="inBonus3" type="text"></td>
+    </tr>
+    <tr>
+      <td>Employee 4</td>
+      <td><input name="inGross4" id="inGross4" type="text"></td>
+      <td><input name="inBonus4" id="inBonus4" type="text"></td>
+    </tr>
+  </table>
+  <input type="button" value="Submit" onlick="process5();">
+  <input type="reset" value="Reset" onlick="reset5();">
+</form>
+
+<table>
+  <tr>
+    <th>Employee</th>
+    <th>Monthly Gross</th>
+    <th>Bonus</th>
+    <th>Total Pay</th>
+  </tr>
+  <tr>
+    <td>Employee 1</td>
+    <td><input name="outGross1" id="outGross1" type="text" readonly></td>
+    <td><input name="outBonus1" id="outBonus1" type="text" readonly></td>
+    <td><input name="outPay1" id="outPay1" type="text" readonly></td>
+  </tr>
+  <tr>
+    <td>Employee 2</td>
+    <td><input name="outGross2" id="outGross2" type="text" readonly></td>
+    <td><input name="outBonus2" id="outBonus2" type="text" readonly></td>
+    <td><input name="outPay2" id="outPay2" type="text" readonly></td>
+  </tr>
+  <tr>
+    <td>Employee 3</td>
+    <td><input name="outGross3" id="outGross3" type="text" readonly></td>
+    <td><input name="outBonus3" id="outBonus3" type="text" readonly></td>
+    <td><input name="outPay3" id="outPay3" type="text" readonly></td>
+  </tr>
+  <tr>
+    <td>Employee 4</td>
+    <td><input name="outGross4" id="outGross4" type="text" readonly></td>
+    <td><input name="outBonus4" id="outBonus4" type="text" readonly></td>
+    <td><input name="outPay4" id="outPay4" type="text" readonly></td>
+  </tr>
+</table>
+
+<script>
+
+$(document).ready(function () {
+    $("#myForm").validate();
+
+    $('[name^="in"]').each(function() {
+        $(this).rules('add', {
+            required: true,
+            number: true
+        });
+    });
+});
+
+function process5() {
+
+  if ($("#myform5").valid()) {
+
+    //declare and define variables
+
+    var gross, bonus, TotalGross;
+
+    for (var i = 1; i <=4; i++) {
+
+      gross = parseFloat(document.getElementById("inGross" + i).value); // User input gross
+      bonus = parseFloat(document.getElementById("inBonus" + i).value); // User input bonus
+
+      //calculate total without overtime
+
+      TotalGross = gross + bonus;
+
+      //output fields
+
+      document.getElementById("outGross" + i).value = gross.toFixed(2);     // output gross
+      document.getElementById("outBonus" + i).value = bonus.toFixed(2);     // output bonus
+      document.getElementById("outPay" + i).value = TotalGross.toFixed(2);  // output pay
+
+    }
+
+  }
+
+}
+
+function reset() {
+
+  document.getElementById("outGross" + i).value = "";
+  document.getElementById("outBonus" + i).value = "";
+  document.getElementById("outPay" + i).value = "";
+
+}
+
+</script>
+
+<hr>
+
+<!-- end excercises-->
+
+
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

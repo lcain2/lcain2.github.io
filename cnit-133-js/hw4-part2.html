@@ -9,10 +9,6 @@
   <link rel="stylesheet" href="assets/css/custom-styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-  <script>
-    
-  </script>
     
 </head>
 
@@ -32,7 +28,42 @@
 </header>
 
 <main>
-  <h2>Compound Interest Example</h2>
+  <h2>Learn About Compound Interest</h2>
+  <p>Compound interest on a principal of $1,000.</p>
+  <div class="panel_group">
+
+  <script>
+ 
+    var intRate, year = 1, amount = 1, amountDollars = 1, tableStart = "", tableEnd = "", row = "";
+    
+    for ( intRate = 5; intRate <= 7; intRate++ ) {
+    
+      tableStart = "<div class=\"panel\"><h3>" + intRate + "% Interest Rate</h3>";
+      tableStart += "<table class=\"intRate-table\"><tr><th>Year</th><th>Amount</th><th>Rate</th></tr>";
+      document.write(tableStart);
+
+      for ( year = 1; year <= 5; year++ ) {
+
+        amount = 1000*(1 + (intRate * .01))**year;
+        amountDollars = amount.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
+        row = "<tr>";
+        row += "<td>" + year +  "</td>";
+        row += "<td>" + amountDollars + "</td>";
+        row += "<td>" + intRate * .01 + "</td>";
+        row += "</tr>";
+
+        document.write(row);
+      }
+
+      tableEnd = "</table></div>";
+      document.write(tableEnd);
+      
+    }
+    
+    </script>
+
+  </div><!--end panel group-->
     
   <div class="back-link-bottom">
     <a href="index.html"><span class="material-symbols-outlined">
