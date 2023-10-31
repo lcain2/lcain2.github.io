@@ -52,6 +52,69 @@ header {
     margin-bottom: 1rem;
 }
 
+ul.nav {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.nav li {
+    display: inline-block;
+}
+
+ul.nav li a, ul.nav li span {
+    display: inline-block;
+    padding: .5rem .7rem;
+    border-radius: .2rem;
+}
+
+ul.nav li a {
+    background-color: rgb(57, 1, 186);
+    color: white;
+    text-decoration: none;
+}
+
+ul.nav li a:hover {
+    background-color:rgb(160, 0, 200);
+    text-decoration: underline;
+}
+
+/* Assignments Page */
+
+ul.assignments {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;  
+}
+
+ul.assignments li {
+    display: inline-block;
+    width: 30%;
+}
+
+ul.assignments li a {
+    display: block;
+    background: white;
+    border-radius: .5rem;
+    padding: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    
+}
+
+ul.assignments li a:hover {
+    
+}
+
+ul.assignments li img {
+    max-width: 100%;
+    filter: grayscale(100%);
+}
+
+ul.assignments li a:hover img {
+    filter: none;  
+}
+
 /* HW 1B */
 
 img.hw1b-image {

@@ -1,0 +1,126 @@
+body {
+    background-color: yellow;
+    font-family: "Times", "Times New Roman", serif;
+    font-size: 1rem;
+    color: black;
+}
+
+/* Typography */
+
+a {
+    color: red;
+}
+
+a:hover {
+    color: purple;
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+}
+
+h1 {
+    color: red;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    color: blue;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: right;
+    margin: 1.245rem 0;
+}
+
+h2.large {
+    font-size: 3rem;
+}
+
+h3 {
+    color: red;
+    font-size: 1.17rem;
+    text-align: right;
+}
+
+span.dropcap {
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+span.red {
+    color: red;
+}
+
+/* Table */
+
+table {
+    background-color: cyan;
+    border-spacing: .313rem;
+    border-collapse: separate;
+    animation: tableColors 6s linear 2s 1 forwards;
+    -moz-animation: tableColors 6s linear 2s 1 forwards;
+    -webkit-animation: tableColors 6s linear 2s 1 forwards;
+}
+
+td {
+    padding: 0.625rem;
+}
+
+td:first-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Banner */
+
+#banner {
+    display: inline-block;
+    position: relative;
+    background-color: purple;
+    color: white;
+    font-size: 1.2rem;
+    font-family: "Courgette", sans-serif;
+    width: 10rem;
+    padding: .5rem;
+    text-align: center;
+    animation: moveBanner 10s linear 2s infinite alternate;
+    -moz-animation: moveBanner 10s linear 2s infinite alternate;
+    -webkit-animation: moveBanner 10s linear 2s infinite alternate;
+}
+
+/* Animations */
+
+@keyframes tableColors {
+    from {background-color: cyan;}
+    to {background-color: green; color: white;}
+}
+
+    @-moz-keyframes tableColors /* Firefox */ {
+        from {background-color: cyan;}
+        to {background-color: green; color: white;}
+    }
+
+    @-webkit-keyframes tableColors /* Safari and Chrome */ {
+        from {background-color: cyan;}
+        to {background-color: green; color: white;}
+    }
+
+@keyframes moveBanner {
+    from {top: 0; left:0; background-color: purple;}
+    to {top: 0; left: calc(100% - 11rem); background-color: blue;}
+}
+
+    @-moz-keyframes moveBanner /* Firefox */ {
+        from {top: 0; left:0; background-color: purple;}
+        to {top: 0; left: calc(100% - 11rem); background-color: blue;}
+    }
+
+    @-webkit-keyframes moveBanner /* Safari and Chrome */ {
+        from {top: 0; left:0; background-color: purple;}
+        to {top: 0; left: calc(100% - 11rem); background-color: blue;}
+    }
+

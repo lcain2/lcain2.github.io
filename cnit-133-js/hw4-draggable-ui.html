@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for looping statement that calculates the product and sum of every fourth integer from 5 to 25">
+  <title>Homework 4: Part 1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script>
+
+  </script>
+
+</head>
+
+<body class="hw-sub hw4 hw4-1">
+
+<div class="wrapper">
+
+<header>
+  <h1 class="">Accessorize the Koala</span></h1>
+</header>
+
+<main>
+
+
+   <div class="koala-dress-up">
+
+   <img src="assets/images/face/koala-2.jpg" alt="koala" class="koala-pic">
+   
+      <img src="assets/images/face/sunglasses.png" class="draggable" alt="sunglasses" style="width: 150px;">
+      <img src="assets/images/face/pink-glasses.png" class="draggable" alt="sunglasses" style="width: 170px;">
+      <img src="assets/images/face/tophat.png" class="draggable" alt="sunglasses" style="width: 160px;">
+      <img src="assets/images/face/devo-hat.png" class="draggable" alt="sunglasses" style="width: 140px;">
+      <img src="assets/images/face/fruit-hat.png" class="draggable" alt="sunglasses" style="width: 200px;">
+      <img src="assets/images/face/mustache.png" class="draggable" alt="sunglasses" style="width: 100px;">
+      <img src="assets/images/face/clown-nose.png" class="draggable" alt="sunglasses" style="width: 65px;">
+      <img src="assets/images/face/flower-crown.png" class="draggable" alt="sunglasses" style="width: 180px;">
+    
+   </div><!-- end koala-dress-up -->
+  
+  <script>
+  
+    // Draggable Div
+  
+    $( function() {
+      $( ".draggable" ).draggable();
+    } );
+  
+    // Part 1: product and sum of every fourth integer from 5 to 25 inclusive
+  
+    var sum1 = 0;
+    var product1 = 1;
+  
+    for (var number1 = 5; number1 <= 25; number1 +=4) {
+  
+      sum1 += number1;
+      product1 *= number1;
+  
+    }
+
+    var output1 = "<p>The result of 5 * 9 * 13 * 17 * 21 * 25 is " + product1.toLocaleString() + ".</p>";
+    output1 += "<p>The result of 5 + 9 + 13 + 17 + 21 + 25 is " + sum1.toLocaleString() + ".</p>";
+  
+    document.getElementById("outputText1").innerHTML = output1;
+
+    // Part 2: product and sum of every third integer from 3 to 18 inclusiv
+
+    var sum2 = 0;
+    var product2 = 1;
+  
+    for (var number2 = 3; number2 <= 18; number2 +=3) {
+  
+      sum2 += number2;
+      product2 *= number2;
+  
+    }
+
+    var output2 = "<p>The result of 3 * 6 * 9 * 12 * 15 * 18 is " + product2.toLocaleString() + ".</p>";
+    output2 += "<p>The result of 3 + 6 + 9 + 12 + 15 + 18 is " + sum2.toLocaleString() + ".</p>";
+  
+    document.getElementById("outputText2").innerHTML = output2;
+
+  </script>
+
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
