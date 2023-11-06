@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for onchange on onclick event handlers">
+  <title>Homework 5: Part 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
+  <script>
+    function goToSite(myForm) {
+        var myDestination = myForm.siteList.options[myForm.siteList.selectedIndex].value;
+        window.open(myDestination);
+    }
+  </script>
+
+</head>
+
+<body class="hw-sub hw5 hw5-2">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw5.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 5</a>
+    <a href="hw5-part1.html">Part 1</a>
+    <a href="hw5-part2.html" class="current-page">Part 2</a>
+    <a href="hw5-part3.html">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">5</span> <span class="hw-part">Part 2</span></h1>
+</header>
+
+<main>
+
+  <h2>onChange Event Handler</h2>
+  <form>
+    <select name="siteList" onChange="goToSite(this.form);">
+      <option>Choose a Website:</option>
+      <option value="https://www.nytimes.com/">New York Times</option>
+      <option value="https://www.washingtonpost.com/">Washington Post</option>
+      <option value="https://www.chicagotribune.com/">Chicago Tribune</option>
+      <option value="https://www.sfchronicle.com/">San Francisco Chronicle</option>
+    </select>
+  </form>
+  
+  <h2>onClick Event Handler</h2> 
+  <form>
+    <label for="siteList">Choose a Website:</label>
+    <select name="siteList">
+      <option value="https://www.nytimes.com/">New York Times</option>
+      <option value="https://www.washingtonpost.com/">Washington Post</option>
+      <option value="https://www.chicagotribune.com/">Chicago Tribune</option>
+      <option value="https://www.sfchronicle.com/">San Francisco Chronicle</option>
+    </select>
+    <input type="button" class="button" value="Go" onClick="goToSite(this.form);">
+  </form>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for validating array data">
+  <title>Homework 5: Part 3</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script>
+
+  </script>
+
+</head>
+
+<body class="hw-sub hw5 hw5-3">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw5.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 5</a>
+    <a href="hw5-part1.html">Part 1</a>
+    <a href="hw5-part2.html">Part 2</a>
+    <a href="hw5-part3.html" class="current-page">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">5</span> <span class="hw-part">Part 3</span></h1>
+</header>
+
+<main>
+<div class="panel_group">
+  <div class="panel">
+    <form name="stateForm" id="stateForm">
+      <div class="field-group">
+        <label for="state" class="label-large">Enter a U.S. State:</label>
+        <input type="text" size="40" id="state" name="state"><br>
+        <span><small><em>Full name or 2-letter abbreviation</em></small></span>
+      </div>
+      <input type="button" onclick="getData()" value="Get State Info" class="button submit">
+      <input type="reset" value="Reset" onclick="formReset()" class="reset">
+    </form>
+    <div id="notFound">
+    </div>
+  </div>
+  <div class="panel panel-green">
+    <div id="stateData">
+    </div>
+  </div>
+</div>
+
+<script>
+
+  function formReset() {
+    document.getElementById("stateData").innerHTML = "";
+    document.getElementById("notFound").innerHTML = ""; 
+  }
+
+  var stateArray = [
+                ["al", "alabama", "montgomery", "4,903,185"],
+                ["ak", "alaska", "juneau", "731,545"],
+                ["az", "arizona", "phoenix", "7,278,717"],
+                ["ar", "arkansas", "little rock", "3,017,825"],
+                ["ca", "california", "sacramento", "39,512,223" ],
+                ["co", "colorado", "denver", "5,758,736"] ]; 
+
+  //var stateList = stateArray[0][1].toUpperCase() + ", ";
+  //stateList += stateArray[1][1].toUpperCase() + ", ";
+  //stateList += stateArray[2][1].toUpperCase() + ", ";
+  //stateList += stateArray[3][1].toUpperCase() + ", ";
+  //stateList += stateArray[4][1].toUpperCase() + ", and ";
+  //stateList += stateArray[5][1].toUpperCase();
+
+  var stateList = "";
+
+  for (var row = 0; row < stateArray.length - 1; row++) 
+      {
+        stateList += stateArray[row][1].toUpperCase() + ", ";
+      }
+      stateList += "and " + stateArray[stateArray.length - 1][1].toUpperCase();
+
+  /* !!! Come back to this later - create state list with 1st letter capitalized
+
+  var stateList2 = "";
+  var stateArrayCaps = [];
+
+   for (var row = 0; row < stateArray.length; row++) 
+      {
+        var state = stateArray[row][1];
+        var stateCap = state.charAt(0).toUpperCase()
+  + state.slice(1);
+        stateArrayCaps.push (stateCap);
+      }
+
+for (var row = 0; row < stateArrayCaps.length; row++) 
+      {
+        
+      } */
+
+  function getData() {
+
+    // clear old results
+
+    document.getElementById("stateData").innerHTML = "";
+    document.getElementById("notFound").innerHTML = ""; 
+
+    // declare variables
+
+    var abbr, fullname, capital, population;
+
+    var stateInput = document.getElementById("state").value;
+    
+    var searchKey = stateInput.toLowerCase();
+    
+    var found = false;
+
+    var notFoundMsg = "<div class=\"error\">Sorry, we do not have information about <strong>" + stateInput + "</strong>! We only have information about " + stateList + ".</div>";
+
+    if (stateInput == "" | stateInput == null) {
+      document.getElementById("notFound").innerHTML = "<div class=\"error\">You must enter a state name or abbreviation.</div>";  
+    }
+    else {
+      for (var row = 0; row < stateArray.length; row++) 
+      {
+        if ((stateArray[row][0] == searchKey) || (stateArray[row][1] == searchKey))
+        
+        //check if search key = 1st or 2nd element of each row
+
+        { 
+
+          // if search key = 1st or 2nd element of a particular row, show state data
+
+          abbr = stateArray[row][0];
+          fullname = stateArray[row][1];
+          capital = stateArray[row][2];
+          population = stateArray[row][3];
+
+          abbrCaps = abbr.toUpperCase();
+          fullnameCap = fullname[0].toUpperCase() + fullname.substring(1);
+          capitalCap = capital[0].toUpperCase() + capital.substring(1);
+
+          var stateMsg = "<p>Thanks for your inquiry, here is the information you requested: <br><br>";
+          stateMsg += "State Abbr: " + abbrCaps + "<br>";
+          stateMsg += "State Name: " + fullnameCap + "<br>";
+          stateMsg += "Capital: " + capitalCap + "<br>";
+          stateMsg += "Population: " + population;
+
+          document.getElementById("stateData").innerHTML = stateMsg;
+
+          row = stateArray.length;   //ends loop if match found
+          found = true;
+        } // end if
+      } // end for
+      if ( stateInput != "" && found == false ) {
+        document.getElementById("notFound").innerHTML = notFoundMsg; 
+      }
+
+  } // end else
+
+} // end function
+
+ 
+
+</script>
+  
+
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

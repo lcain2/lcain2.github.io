@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for validating form data">
+  <title>Homework 5: Part 1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://code.jquery.com/jquery-1.10.1.js"></script>
+</head>
+
+<body class="hw-sub hw5 hw5-1">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw5.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 5</a>
+    <a href="hw5-part1.html" class="current-page">Part 1</a>
+    <a href="hw5-part2.html">Part 2</a>
+    <a href="hw5-part3.html">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">5</span> <span class="hw-part">Part 1</span></h1>
+</header>
+
+<main>
+<div class="form-wrapper">
+  <form id="form1" name="form1" class="form-bg">
+    <div class="field-group">
+      <label for="fullname" class="label-large">Full Name: <span class="req">*</span></label>
+      <input type="text" id="fullname" name="fullname" size="40" class="required">
+      <div id="errorName" class="errorMsg"></div>
+    </div>
+    <div class="field-group">
+      <label for="ageSelection" class="label-large">Age Group: <span class="req">*</span></label>
+      <div class="form-option">
+        <input type="radio" name="ageSelection" id="age0-20" name="age0-20" value="0-20" />
+        <label for="age0-20">0-20</label>
+      </div>
+      <div class="form-option">
+        <input type="radio" name="ageSelection" id="age21-50" name="age21-50" value="21-50" />
+        <label for="age21-50">21-50</label>
+      </div>
+      <div class="form-option">
+        <input type="radio" name="ageSelection" id="age51-x" name="age51-x" value="51+" />
+        <label for="age51-x">51+</label>
+      </div>
+      <div id="errorAge" class="errorMsg"></div>
+    </div>
+    <div class="field-group">
+      <label for="browserSelection" class="label-large">What Browsers Have You Used? <span class="req">*</span></label>
+      <div class="form-option">
+        <input type="checkbox" name="browserSelection" id="browserFirefox" name="browserFirefox" value="Firefox" />
+        <label for="browserFirefox">Firefox</label>
+      </div>
+      <div class="form-option">
+        <input type="checkbox" name="browserSelection" id="browserEdge" name="browserEdge" value="Edge" />
+        <label for="browserEdge">Edge</label>
+      </div>
+      <div class="form-option">
+        <input type="checkbox" name="browserSelection" id="browserChrome" name="browserChrome" value="Chrome" />
+        <label for="browserChrome">Chrome</label>
+      </div>
+      <div class="form-option">
+        <input type="checkbox" name="browserSelection" id="browserSafari" name="browserSafari" value="Safari" />
+        <label for="browserSafari">Safari</label>
+      </div>
+      <div id="errorBrowser" class="errorMsg"></div>
+    </div>
+    <div class="field-group">
+      <label for="genreSelection" class="label-large">Favorite Movie Genre (choose one): <span class="req">*</span></label>
+      <select name="genreSelection" class="required">
+        <option value=" ">- Select One -</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Science Fiction">Science Fiction</option>
+      </select> 
+      <div id="errorGenre" class="errorMsg"></div>   
+    </div>
+    <br>
+    <input type="button" onclick="Submit()" value="Submit" class="button submit">
+    <input type="reset" value="Reset" onclick="formReset()" class="reset">
+  </form>
+
+  <div id="successMessage">
+  </div>
+
+</div><!--end form wrapper-->
+
+<script>
+
+  function Reset() {
+
+    document.getElementById("successMessage").innerHTML = "";
+    
+  }
+
+  function Submit() {
+
+    // clear old validation 
+    // document.getElementsByClassName("errorMsg").innerHTML = ""; not working
+    document.getElementById("errorName").innerHTML = "";
+    document.getElementById("errorName").innerHTML = "";
+    document.getElementById("errorAge").innerHTML = "";
+    document.getElementById("errorBrowser").innerHTML = "";
+    document.getElementById("errorGenre").innerHTML = "";
+    document.getElementById("successMessage").innerHTML = "";
+
+    // define variables
+
+    var msgName = "<span>Please enter your name.</span>";
+    var msgAge = "<span>Please select an age range.</span>"
+    var msgBrowser = "<span>Please select at least one browser.</span>"
+    var msgGenre = "<span>Please select a genre.</span>";
+    var msgSuccess = "<span>Thanks, your data was submitted!</span>";
+    var x = 0;   // use x for determining if form fields valid 
+
+    // validate name
+  
+    var name = document.getElementById("fullname").value;
+      
+    if (name == "" || name == null)
+    {          	
+      document.getElementById("errorName").innerHTML = msgName;
+      x = 1;
+    } 
+
+    // validate age selection
+
+    var ageChecked = false;
+
+    for (var i=0; i<3; ++i) {
+        if (document.form1.ageSelection[i].checked) {
+            ageChecked = true;
+            break;
+          }
+    }
+
+    if (ageChecked == false) {
+      document.getElementById("errorAge").innerHTML = msgAge; 
+      x = 1;
+      }
+
+    // validate browser selection
+
+    var browserChecked = false;
+
+    for (var i=0; i<4; ++i) {
+        if (document.form1.browserSelection[i].checked) {
+            browserChecked = true;
+            break;
+          }
+    }
+
+    if (browserChecked == false) {
+      document.getElementById("errorBrowser").innerHTML = msgBrowser; 
+      x = 1;
+      }
+
+    // validate genre seleciton
+
+    var genreSelected = document.forms["form1"].elements["genreSelection"].selectedIndex;
+
+    if (genreSelected < 1)  
+    {
+      document.getElementById("errorGenre").innerHTML = msgGenre;
+      x = 1;
+    }
+
+    // show success message
+
+    if ( x == 0 ) 
+    {
+      document.getElementById("successMessage").innerHTML = msgSuccess;
+    }
+
+  }
+  
+</script>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

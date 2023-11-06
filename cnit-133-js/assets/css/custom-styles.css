@@ -292,6 +292,11 @@ form {
     padding: .5rem 0;
 }
 
+.form-option {
+    display: block;
+    padding: .3rem 0;
+}
+
 .validation {
 }
 
@@ -302,6 +307,10 @@ div.error {
     padding: 1rem;
     margin: 1rem 0;
     border-radius: .3rem;
+}
+
+form .req {
+    color: red;
 }
 
 /* JQuery Validator Styles */
@@ -324,7 +333,7 @@ label.error {
 input[type=submit], input[type=button], input[type=reset], button {
     cursor: pointer;
 }
-input[type=text], input[type=number], input[type=email] {
+input[type=text], input[type=number], input[type=email], select {
     padding: .3rem .5rem;
     font-size: 1em;
     font-family: inherit;
@@ -453,4 +462,47 @@ td {
 .koala-pic {
    width: 400px;
    float: left;
+}
+
+/* Homework 5 */
+
+.hw5 .form-wrapper {
+    max-width: 430px;
+}
+
+.form-bg {
+    display: block;
+    background: #eee;
+    border-radius: .4rem;
+    padding: 1rem 2rem;
+}
+
+.hw5 .label-large {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.hw5 #successMessage, .hw5 #stateData {
+    margin-top: 1rem; 
+}
+
+.hw5-1 #successMessage span {
+    background: #d2f7e0;
+    border-radius: .4rem;
+    padding: 1rem 2rem;
+    display: block;
+}
+
+.hw5-1 .errorMsg {
+    display: block;
+}
+
+.hw5-1 .errorMsg span {
+    display: block;
+    background-color: #ffb7b7;
+    border: 1px solid red;
+    padding: .2rem;
+    margin: .5rem 0;
+    border-radius: .3rem;
 }
