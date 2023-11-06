@@ -66,6 +66,13 @@
                 ["ca", "california", "sacramento", "39,512,223" ],
                 ["co", "colorado", "denver", "5,758,736"] ]; 
 
+  //var stateList = stateArray[0][1].toUpperCase() + ", ";
+  //stateList += stateArray[1][1].toUpperCase() + ", ";
+  //stateList += stateArray[2][1].toUpperCase() + ", ";
+  //stateList += stateArray[3][1].toUpperCase() + ", ";
+  //stateList += stateArray[4][1].toUpperCase() + ", and ";
+  //stateList += stateArray[5][1].toUpperCase();
+
   var stateList = "";
 
   for (var row = 0; row < stateArray.length - 1; row++) 
@@ -73,6 +80,24 @@
         stateList += stateArray[row][1].toUpperCase() + ", ";
       }
       stateList += "and " + stateArray[stateArray.length - 1][1].toUpperCase();
+
+  /* !!! Come back to this later - create state list with 1st letter capitalized
+
+  var stateList2 = "";
+  var stateArrayCaps = [];
+
+   for (var row = 0; row < stateArray.length; row++) 
+      {
+        var state = stateArray[row][1];
+        var stateCap = state.charAt(0).toUpperCase()
+  + state.slice(1);
+        stateArrayCaps.push (stateCap);
+      }
+
+for (var row = 0; row < stateArrayCaps.length; row++) 
+      {
+        
+      } */
 
   function getData() {
 
