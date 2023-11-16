@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for processing decimals">
+  <title>Homework 6: Part 1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+</head>
+
+<body class="hw-sub hw6 hw6-1">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw6-part3.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 6</a>
+    <a href="hw6-part1.html" class="current-page">Part 1</a>
+    <a href="hw6-part2.html">Part 2</a>
+    <a href="hw6-part3.html">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">6</span> <span class="hw-part">Part 1</span></h1>
+</header>
+
+<main>
+
+<div class="panel_group">
+
+  <div class="panel">
+
+    <form id="decimal-form">
+      <div class="field-group">
+        <label for="number" class="label-large">Enter a Number with 4 demical points:</label>
+        <input type="number" id="number" name="number">
+      </div><!--end field group-->
+      <div id="validation"></div>
+      <input type="button" onclick="process()" value="Submit" class="button submit">
+      <input type="reset" value="Reset" onclick="formReset()" class="reset">
+    </form>
+
+  </div><!--end panel-->
+
+  <div class="panel panel-green">
+
+    <div id="output">
+    </div>
+
+  </div><!--end panel-->
+
+</div><!--end panel_group-->
+
+<script>
+
+  function process() {
+
+    // clear old results
+
+    document.getElementById("validation").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+
+    // get number input
+
+    var numberIn = parseFloat(document.forms["decimal-form"].elements["number"].value);
+
+    // regExp for 4 decimal number
+
+    var re = new RegExp("^[0-9]{1,11}\.[0-9]{4,}$");
+
+    // check for valid 4 decimal number
+
+    if (numberIn = "" || isNaN(numberIn) || (!(re.test(numberIn))) ) {
+      document.getElementById("validation").innerHTML = "<div class=\"error\">You must enter a number with 4 decimals</div>";
+    }
+
+    // if valid, process number
+
+    else {
+
+      var number = parseFloat(document.forms["decimal-form"].elements["number"].value);
+
+      // round the floating-point number to the nearest integer
+
+      var nearestInt = Math.round(number);
+
+      // calculate the square root of the floating-point number and round it to an integer
+
+      var sqroot = Math. sqrt(number);
+      var sqrootRounded = Math.round(sqroot);
+
+      // round the floating-point number to the nearest tenths position
+
+      var nearestTenth = number.toFixed(1);
+
+      // round the floating-point number to the nearest hundredths position
+
+      var nearestHundredth = number.toFixed(2);
+
+      // round the floating-point number to the nearest thousandths position
+
+      var nearestThousandth = number.toFixed(3);
+
+      // show results 
+
+      var output = "<p>You entered the number " + number + "</p>";
+
+      output += "<p>Rounded to the nearest integer: " + nearestInt + "</p>";
+
+      output += "<p>Square root rounded to the nearest integer: " + sqrootRounded + "</p>";
+
+      output += "<p>Rounded to the nearest 10th position: " + nearestTenth + "</p>";
+
+      output += "<p>Rounded to the nearest 100th position: " + nearestHundredth + "</p>";
+
+      output += "<p>Rounded to the nearest 1000th position: " + nearestThousandth + "</p>";
+
+      document.getElementById("output").innerHTML = output; 
+
+    }
+
+  } // end process()
+
+  function formReset() {
+    document.getElementById("validation").innerHTML = "";
+    document.getElementById("output").innerHTML = "";
+  }
+
+</script>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

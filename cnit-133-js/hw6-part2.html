@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript to count a letter in a string">
+  <title>Homework 6: Part 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+
+</head>
+
+<body class="hw-sub hw6 hw6-2">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw6.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 5</a>
+    <a href="hw6-part1.html">Part 1</a>
+    <a href="hw6-part2.html" class="current-page">Part 2</a>
+    <a href="hw6-part3.html">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">6</span> <span class="hw-part">Part 2</span></h1>
+</header>
+
+<main>
+
+  <div class="panel_group">
+
+    <div class="panel">
+      <h2>Letter Count</h2>
+      <form id="lettercount-form">
+        <div class="field-group">
+          <label for="text" class="label-large">Enter your text:</label>
+          <textarea id="text" name="text" rows="6" cols="50"></textarea>
+        </div><!--end field group-->
+        <div class="field-group">
+          <label for="letter" class="label-large">Enter a letter:</label>
+          <input type="text" maxlength="1" size="2" id="letter" name="letter">
+        </div><!--end field group-->
+        <div id="validation"></div>
+        <input type="button" onclick="process()" value="Submit" class="button submit">
+        <input type="reset" value="Reset" onclick="formReset()" class="reset">
+      </form>
+  
+    </div><!--end panel-->
+  
+    <div class="panel panel-green">
+  
+      <div id="output">
+      </div>
+  
+    </div><!--end panel-->
+  
+  </div><!--end panel_group-->
+
+  <script>
+
+    function process() {
+  
+      // clear old results
+  
+      document.getElementById("validation").innerHTML = "";
+      document.getElementById("output").innerHTML = "";
+  
+      // get input & declare variables
+  
+      var letter = document.forms["lettercount-form"].elements["letter"].value.toUpperCase();
+      var stringToSearch = document.forms["lettercount-form"].elements["text"].value;
+      var stringToSearch = stringToSearch.toUpperCase();
+      var count = 0;
+
+      // validate input 
+
+      if (letter == "" || stringToSearch == "") {
+        document.getElementById("validation").innerHTML = "<div class=\"error\">You must enter text and a letter.</div>";  
+      }
+      else {
+
+      // search through text & count letter
+   
+                        
+      for (i=0; i < stringToSearch.length; i++) {
+        
+        if (stringToSearch.charAt(i) == letter)
+                      count++;     
+      } 
+      
+      // if letter not found
+
+      if ( count == 0 ) {
+
+        // assemble HTML to pump into new window:
+
+        var myText = "<p>Search character " + letter + " was not found in the content you typed.</p>";
+        myText += "<input type='button' value='Close Window' onclick='window.close()'>";
+        
+        // open window on the upper right of the screen
+      
+        var errWindow = window.open("", "new_window", "top=120,left=50,width=300,height=100");
+        
+        errWindow.focus();
+
+        // pump html into to this new opened window
+         
+        errWindow.document.write(myText);
+
+        // tell browser that errWindow document is finished loading
+
+        errWindow.document.close();
+
+        // Put error msg in input text box of original page
+
+        document.getElementById("output").innerHTML = "<p>See popup window.</p>"; 
+      
+      }
+
+      // if found, show result
+
+      else {
+
+        var output = "<p>The letter " + letter + " appears " + count + " times.";
+
+        document.getElementById("output").innerHTML = output;
+
+        }
+    
+      }
+    } // end process()
+  
+    function formReset() {
+      document.getElementById("validation").innerHTML = "";
+      document.getElementById("output").innerHTML = "";
+    }
+  
+  </script>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

@@ -313,6 +313,12 @@ form .req {
     color: red;
 }
 
+.label-large {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
 /* JQuery Validator Styles */
 
 input.error {
@@ -477,12 +483,6 @@ td {
     padding: 1rem 2rem;
 }
 
-.hw5 .label-large {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-}
-
 .hw5 #successMessage, .hw5 #stateData {
     margin-top: 1rem; 
 }
@@ -505,4 +505,21 @@ td {
     padding: .2rem;
     margin: .5rem 0;
     border-radius: .3rem;
+}
+
+/* Homework 6 */
+
+.hw6-2 #text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: .5rem;
+}
+
+.hw6-2 #letter {
+    width: 2.5rem;
+    font-size: 2rem;
+    line-height: 1rem;
+    padding: 0 0 0;
+    text-align: center;
+    vertical-align: middle;
 }

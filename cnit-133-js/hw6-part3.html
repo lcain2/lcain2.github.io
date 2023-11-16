@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="JavaScript for validating phone numbers and using substrings to break it apart">
+  <title>Homework 6: Part 3</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+</head>
+
+<body class="hw-sub hw6 hw6-3">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw6.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 6</a>
+    <a href="hw6-part1.html">Part 1</a>
+    <a href="hw6-part2.html">Part 2</a>
+    <a href="hw6-part3.html" class="current-page">Part 3</a>  
+  </div>
+  <h1 class="">Homework <span class="hw-number">6</span> <span class="hw-part">Part 3</span></h1>
+</header>
+
+<main>
+
+<div class="panel_group">
+
+  <div class="panel">
+
+    <form id="phone-form" name="phone-form">
+      <div class="field-group">
+        <label for="phone-number" class="label-large">Enter a Phone Number:</label>
+        <input type="text" name="phone-number" id="phone-number">
+      </div>
+      <div id="validation"></div>
+      <input type="button" onclick="process()" value="Submit" class="button submit">
+      <input type="reset" value="Reset" onclick="formReset()" class="reset">
+    </form>
+
+  </div>
+
+  <div class="panel panel-green">
+
+    <div id="outputnum"></div>
+
+    <form id="output" name="output">
+      <div class="field-group">
+        <label for="area-code">Area Code: </label>
+        <input type="text" size="3" name="area-code" id="area-code">
+      </div>
+      <div class="field-group">
+        <label for="first-3">First 3 Digits: </label>
+        <input type="text" size="3" name="first-3" id="first-3">
+      </div>
+      <div class="field-group">
+        <label for="last-4">Last 4 Digits: </label>
+        <input type="text" size="4" name="last-4" id="last-4">
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<script>
+
+  $('input[name="phone-number"]').mask('(000) 000-0000');
+
+  function process() {
+
+    // clear old results & validation
+
+    document.getElementById("validation").innerHTML = "";
+    document.forms["output"].elements["area-code"].value = "";
+    document.forms["output"].elements["first-3"].value = "";
+    document.forms["output"].elements["last-4"].value = "";
+
+    // get phone number input & validate
+
+    var myString = document.forms["phone-form"].elements["phone-number"].value;
+    var phoneRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
+
+    if ( !phoneRegExp.test(myString)) {
+      document.getElementById("validation").innerHTML = "<div class=\"error\">You must enter a 10-digit phone number</div>";
+    }
+    else {
+
+      // break into 3 pieces
+
+      var areaCode = myString.substring(1, 4);
+      var first3 = myString.substring(6, 9);
+      var last4 = myString.substring(10, 14);
+
+      // show results
+
+      document.forms["output"].elements["area-code"].value = areaCode;
+      document.forms["output"].elements["first-3"].value = first3;
+      document.forms["output"].elements["last-4"].value = last4;
+    }
+  }
+
+  function formReset() {
+    document.getElementById("validation").innerHTML = "";
+    document.forms["output"].elements["area-code"].value = "";
+    document.forms["output"].elements["first-3"].value = "";
+    document.forms["output"].elements["last-4"].value = "";
+  }
+
+</script>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>
