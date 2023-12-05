@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content=""><!--update-->
+  <title>Homework 7: Part 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+
+<body class="hw-sub hw7 hw7-1">
+
+<div class="wrapper">
+
+<header>
+  <div class="back-link">
+    <a href="hw7.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Back to Homework 7</a>
+    <a href="hw7-part1.html" class="current-page">Part 1</a>
+    <a href="hw7-part2.html">Part 2</a>
+  </div>
+  <h1 class="">Homework <span class="hw-number">7</span> <span class="hw-part">Part 1</span></h1>
+</header>
+
+<main>
+
+  <div class="panel_group">
+    <div class="panel">
+      <form name="styles" id="styles">
+
+        <div class="field-group">
+          <label class="label-large">Background</label>
+          <div class="form-option">
+            <input type="radio" id="white" name="background-color" value="white" checked>
+            <label for="white">White</label>
+          </div>
+          <div class="form-option">
+            <input type="radio" id="green" name="background-color" value="#d2f7e0">
+            <label for="green">Green</label>
+          </div>
+          <div class="form-option">
+            <input type="radio" id="blue" name="background-color" value="#c7f6ff">
+            <label for="blue">Blue</label><br>
+          </div>
+          <div class="form-option">
+            <input type="radio" id="purple" name="background-color" value="#e5dbff">
+            <label for="purple">Purple</label><br>
+          </div>
+
+          <div class="field-group">
+            <label class="label-large">Style</label>
+            <div class="form-option">
+              <input type="checkbox" id="underline" name="text-decoration" value="underline">
+              <label for="underline">Underline</label><br>
+            </div>
+            <div class="form-option">
+              <input type="checkbox" id="bold" name="font-weight" value="bold">
+              <label for="bold">Bold</label><br>
+            </div>
+            <div class="form-option">
+              <input type="checkbox" id="italic" name="font-style" value="italic">
+              <label for="italic">Italic</label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="size" class="label-large">Font Size</label>
+            <select name="font-size" id="size">
+              <option value="100%">100%</option>
+              <option value="125%">125%</option>
+              <option value="150%">150%</option>
+            </select>
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="panel panel-white panel-border" id="text-wrapper">
+      <div id="text-content">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.</p>
+        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque odio nisi euismod in pharetra a ultricies in diam. Sed arcu. Cras consequat.</p>
+        <p>Praesent dapibus neque id cursus faucibus tortor neque egestas auguae eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi tincidunt quis accumsan porttitor facilisis luctus metus.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Define a document ready handler
+    $(function () {
+        // Attach a click event handler to all the radio buttons in the attribute selection table
+        $("#styles :radio").click(function () {
+            // The "this" variable refers to the radio button that was clicked.
+            // The HTML code defines the name attribute of the radio button as the name of the CSS property
+            // we want to set; the value of the radio button is the value we want to set the CSS property to.
+            // By doing this, the CSS of the sample text can be set easily with the following line of code:
+            $("#text-wrapper").css($(this).attr("name"), $(this).val());
+        });
+
+        // Attach a click event handler to the font size selection box
+        $("#size").change(function () {
+            $("#text-content").css($(this).attr("name"), $(this).val());
+        });
+
+        // Attach a click event handler to the checkboxes in the attribute selection table
+        $("#styles :checkbox").change(function () {
+            $("#text-content").css($(this).attr("name"), this.checked ? $(this).val() : "");
+        });
+        
+    });
+</script>
+
+  <!-- back link -->
+  <div class="back-link-bottom">
+    <a href="index.html"><span class="material-symbols-outlined">
+      keyboard_return</span> Homework List</a> 
+  </div>
+</main>
+
+</div>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

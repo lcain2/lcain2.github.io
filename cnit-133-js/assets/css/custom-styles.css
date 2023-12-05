@@ -6,6 +6,10 @@ body {
     padding: 0 1em;
 }
 
+.hw7 body main {
+    font-family: helvetica, sans-serif;
+}
+
 /**/
 
 h1 {
@@ -62,9 +66,9 @@ a:hover {
     text-decoration: none;
 }
 
-a:visited {
+/*a:visited {
     color: rgb(26, 0, 87);
-}
+}*/
 
 a:focus {
     outline-color: rgb(255, 95, 27);
@@ -239,6 +243,7 @@ h1 span.hw-part {
     padding-top: 1em;
     border-top: 1px solid #ccc;
     margin-top: 2em;
+    clear: both;
 }
 
 .announcement {
@@ -270,6 +275,10 @@ h1 span.hw-part {
 
 .panel-white {
     background: #fff;
+}
+
+.panel-border {
+    border: 1px solid #ccc;
 }
 
 @media (max-width: 992px) {
@@ -523,3 +532,119 @@ td {
     text-align: center;
     vertical-align: middle;
 }
+
+/* Homework 7 */
+
+.hw7-1 #text-content {
+    line-height: 1.5rem;
+}
+
+.hw7 .accordion-header {
+    color: rgb(57, 1, 186);
+    border-top: 1px solid rgb(57, 1, 186);
+    padding-top: .75rem;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.hw7 .accordion-header:hover {
+    color: rgb(160, 0, 200);
+}
+
+.hw7 h2 {
+	background: url(../images/open.png) no-repeat .2rem 1.1rem;
+	padding: 10px 0 0 25px;
+	cursor: pointer;
+}
+.hw7 h2.close {
+	background-image: url(../images/close.png);
+}
+.hw7 .answer {
+	margin-left: 25px;	
+}
+
+.hw7 #text-content p {
+    font-size: inherit;
+    line-height: 150%;
+}
+
+/* 7 Part 2 */
+
+#hw7-nav {
+    display: block;
+    margin-bottom: 4rem;
+}
+
+#hw7-nav .clear {
+    clear: both;
+}
+
+.hw7 ul.dropdown { 
+    list-style: none; 
+    position: relative; 
+    margin: 0;
+    padding: 0;
+}
+
+.hw7 ul.dropdown li { 
+    font-weight: bold; 
+    float: left; 
+    background: #d2f7e0; 
+}
+
+.hw7 ul.dropdown a:hover { 
+    color: #000; 
+}
+
+.hw7 ul.dropdown a:active { 
+    color: #fab0ff; 
+}
+
+.hw7 ul.dropdown li a { 
+    display: block; 
+    padding: 1rem 2rem; 
+    border-right: 1px solid #333;
+	color: #222; 
+}
+
+.hw7 ul.dropdown li:last-child a { 
+    border-right: none; 
+} 
+
+.hw7 ul.dropdown li.hover, .hw7 ul.dropdown li:hover { 
+    background: #fab0ff; 
+    color: black; 
+    position: relative; 
+}
+
+.hw7 ul.dropdown li.hover a { 
+    color: black; 
+}
+
+/* 
+	LEVEL TWO
+*/
+.hw7 ul.dropdown ul { 
+    width: 300px; 
+    list-style: none;
+    visibility: hidden; 
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    margin: 0;
+    padding: 0; 
+}
+
+.hw7 ul.dropdown ul li { 
+    font-weight: normal; 
+    background: #da8cdf; 
+    color: #000; 
+    border-bottom: 1px solid #ccc; 
+    float: none; 
+}
+									  
+.hw7 ul.dropdown ul li a	{ 
+    border-right: none; 
+    width: 100%; 
+    display: block; 
+} 

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/custom-styles.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.js"></script>
+  <script src="http://code.jquery.com/jquery-1.7.1.js"></script>
 </head>
 
 <body class="hw-sub hw7">
@@ -23,22 +23,6 @@
 </header>
 
 <main>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-     $('.hw7-part').hide();
-     $('main h2').toggle(
-        function() {
-             $(this).next('.hw7-part').slideDown();
-           $(this).addClass('close');
-        },
-        function() {
-           $(this).next('.hw7-part').fadeOut();
-           $(this).removeClass('close');
-        }
-      ); // end toggle
-    }); // end ready
-    </script>
     
     <h2 class="accordion-header">Part 1</h2>
     <div class="hw7-part">
@@ -48,11 +32,25 @@
     
     <h2 class="accordion-header">Part 2</h2>
     <div class="hw7-part">
-    <p>Using jquery for a dropdown menu.</p>
+    <p>Lorem ipsum dolor sit amet</p>
     <p><a href="hw7-part2.html" class="button">View Part 2</a></p>
     </div>
 
-  
+  <script>
+    $(document).ready(function() {
+    $('.hw7-part').hide();
+    $('main h2').toggle(
+    function() {
+    $(this).next('.hw7-part').slideDown();
+    $(this).addClass('close');
+    },
+    function() {
+    $(this).next('.hw7-part').fadeOut();
+    $(this).removeClass('close');
+    }
+    ); // end toggle
+    }); // end ready
+    </script>
 
 </main>
 
