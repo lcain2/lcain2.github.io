@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="CNIT 132 Intermediate HTML - Leslie Cain's Final Project">
+  <title>Leslie Cain - Final Project - CNIT 132
+  </title>
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+</head>
+
+<body class="fp">
+
+<div class="wrapper">
+
+<header>
+  <h1>Contact</h1>
+</header>
+
+<div class="col-area">
+
+  <nav>
+    <ul class="nav">
+      <li><a href="finalproject.html">Home</a></li>
+      <li><a href="assignments.html">Assignments</a></li>
+      <li><a href="meetup.html">Meetup</a></li>
+      <li><a href="contact.html" class="current">Contact</a></li>
+    </ul>
+  </nav>
+
+<main> 
+  <p>If you'd like to send me a message, use the form below or email me at the address found in the footer of this webpage. </p>
+  <form name="content-form" id="contact-form">
+    <div class="field-group">
+      <label for="fullname">Full Name</label><span class="req">*</span><br>
+      <input type="text" name="fullname" id="fullname" required>
+    </div>
+    <div class="field-group">
+      <label for="email">Email Address</label><span class="req">*</span><br>
+      <input type="email" name="email" id="email" required>
+    </div>
+    <div class="field-group">
+      <label for="comments">Comments</label><br>
+      <textarea name="comments" id="comments" rows="10"></textarea>
+    </div>
+    <input type="button" name="submit" id="submit" class="button" value="Send!">
+  </form>
+</main>
+
+</div><!-- end flex-grid -->
+
+<footer>
+  <p>&copy; 2023 Leslie Cain | <a href="mailto:lcain2@mail.ccsf.edu">lcain2@mail.ccsf.edu</a></p>
+</footer>
+
+</div><!--end wrapper-->
+
+</body>
+
+</html>

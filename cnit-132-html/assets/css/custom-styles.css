@@ -180,14 +180,21 @@ img.float-left {
     margin: 0 1rem 1rem 0;
 }
 
+/* Homework ? - index.html */
+
+main.padded {
+    padding: 2rem;
+}
+
 /* Homework 4 */
 
 body.hw4 {
     background: url(../images/student.jpg) bottom left no-repeat, url(../images/elementarystudent.png) top right no-repeat, #fcffd0;
 }
 
-.hw4 .wrapper {
+.hw4 .wrapper-hw4 {
     max-width: 60rem;
+    margin: 0 auto;
 } 
 
 .hw4 h1 {
@@ -216,7 +223,47 @@ body.hw4 {
     font-style: italic;
 }
 
+/* Contact Form */
 
+#contact-form label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 0 0 .5rem 0;
+}
+
+#contact-form .field-group {
+    margin: 0 0 1rem;
+}
+
+#contact-form input, #contact-form textarea {
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: .5rem;
+    width: calc( 100% - 1rem );
+}
+
+#contact-form .req {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 115);
+    margin: 0 .1rem;
+}
+
+#contact-form input[type=button] {
+    width: auto;
+    background: rgb(57, 1, 186);
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form input[type=button]:hover {
+    background: rgb(160, 0, 200);
+}
 
 
 
