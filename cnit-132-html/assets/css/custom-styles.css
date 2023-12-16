@@ -12,8 +12,8 @@ h1 {
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.4em;
+    font-size: 1.1rem;
+    line-height: 1.5em;
 }
 
 a {
@@ -39,6 +39,10 @@ ul li, ol li, dl li {
     font-size: 1rem;
     line-height: 1.4em;
     margin-bottom: .5rem;
+}
+
+figure {
+    margin: 1rem 0;
 }
 
 /* Layout */
@@ -72,16 +76,9 @@ main {
     flex-basis: 75%; 
 }
 
-/* Responsive Layout */
-
-@media only screen and (max-width: 600px) {
-    .col-area {
-        display: block; 
-    }
-    nav {
-        margin-bottom: 2rem;
-    }
-  }
+img {
+    max-width: 100%;
+}
 
 /* Navigation */
 
@@ -136,6 +133,7 @@ ul.assignments {
 ul.assignments li {
     display: inline-block;
     width: 30%;
+    vertical-align: top;
 }
 
 ul.assignments li a {
@@ -144,8 +142,8 @@ ul.assignments li a {
     border-radius: .5rem;
     padding: .5rem;
     text-align: center;
-    font-size: 1.2rem;
-    
+    font-size: 1rem;
+    border: 1px solid #ccc;
 }
 
 ul.assignments li a:hover {
@@ -166,6 +164,24 @@ ul.assignments li a:hover img {
 img.hw1b-image {
     float: left;
     margin: 0 2rem 2rem 0;
+}
+
+.hw1b .wrapper {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.hw1b header {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: none;
+    border: none;
+}
+
+.hw1b footer {
+    border: none;
+    padding-top: 0;
 }
 
 /* Mini Project 1 */
@@ -264,6 +280,27 @@ body.hw4 {
 #contact-form input[type=button]:hover {
     background: rgb(160, 0, 200);
 }
+
+/* Responsive Layout */
+
+@media only screen and (max-width: 700px) {
+    .col-area {
+        display: block; 
+    }
+    nav {
+        margin-bottom: 2rem;
+    }
+    ul.assignments li {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    img.float-left {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+  }
 
 
 
