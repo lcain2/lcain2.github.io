@@ -104,25 +104,18 @@
 
       <h2>Extra Credit</h2>
 
-      <button type="button" onclick="loadMovie()" class="button-small">Get Movie Data</button>
-      <br><br>
-      <div id="movie-content"></div>
-
       <script>
-      function loadMovie() {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-          showMovie(this);
+        var randomMovieArray = ['Star Wars', 'Game of Thrones', 'Three Amigos', 'Free Willy'];
+        var randomNumber = Math.floor((Math.random() * randomMovieArray.length -1) + 1);
+        var randomMovie = randomMovieArray[randomNumber];
+
+        function apiCall() {
+          $.getJSON('http://www.omdapi.com/?t=' + encodeURI(randomMovie)).then(function(response));
+          console.log(repsonse);
         }
-        xhttp.open("GET", "http://www.omdbapi.com/?i=tt3896198&apikey=82cdb3d9");
-        xhttp.send();
-      }
-      function showMovie(xml) {
-        const xmlDoc = xml.responseXML;
-        let moviedata = xmlDoc;
-        document.getElementById("movie-content").innerHTML = moviedata;
-      }
-      </script>
+
+        apiCall();
+                  </script>
 
     </section>
 
