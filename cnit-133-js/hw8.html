@@ -104,20 +104,20 @@
 
       <h2>Extra Credit</h2>
 
-      <button type="button" onclick="loadDoc()" class="button-small">Get Movie Data</button>
+      <button type="button" onclick="loadMovie()" class="button-small">Get Movie Data</button>
       <br><br>
       <div id="movie-content"></div>
 
       <script>
-      function loadDoc() {
+      function loadMovie() {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-          myFunction(this);
+          showMovie(this);
         }
         xhttp.open("GET", "http://www.omdbapi.com/?i=tt3896198&apikey=82cdb3d9");
         xhttp.send();
       }
-      function myFunction(xml) {
+      function showMovie(xml) {
         const xmlDoc = xml.responseXML;
         let moviedata = xmlDoc;
         document.getElementById("movie-content").innerHTML = moviedata;
