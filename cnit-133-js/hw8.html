@@ -104,18 +104,68 @@
 
       <h2>Extra Credit</h2>
 
+      <div id="omdb_demo" class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+              <div class="col-lg-4">
+                <label class="sr-only" for="title">Title:</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+              </div>
+              <div class="col-lg-4">
+                <label class="sr-only" for="year">Year:</label>
+                <input type="text" class="form-control" id="year" placeholder="Year">
+              </div>
+              <button class="btn btn-default" id="omdb_submit">Submit</button>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2>Raw Output: <span id="output"></span></h2>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2 class="pretty_movie_output">Make me Pretty:</h2>
+        </div>
+      </div>
+
       <script>
-        var randomMovieArray = ['Star Wars', 'Game of Thrones', 'Three Amigos', 'Free Willy'];
-        var randomNumber = Math.floor((Math.random() * randomMovieArray.length -1) + 1);
-        var randomMovie = randomMovieArray[randomNumber];
 
-        function apiCall() {
-          $.getJSON('http://www.omdapi.com/?t=' + encodeURI(randomMovie)).then(function(response));
-          console.log(repsonse);
-        }
+$("#omdb_submit").click(function(){
+        //Gather values from the other fields and store them into variables.
+        var title = $("#title").val();
+        var year = $("#year").val(); 
+        // Concatenate those variables to a query string.
+        // Note: If you get errors about mixed protocols, then just change the url below to be in https format
+        var queryString = "https://www.omdbapi.com/?apikey=82cdb3d9&t=" + title + "&y=" + year + "&plot=short&r=json";
+        // Put that query string into the AJAX request
+        $.ajax({
+            url: queryString, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+            method: 'GET'
+        }).done(function(response) {
+            if(response.length < 1) {
+                // Output error message into output container
+                $("#output").html("Sorry, no movies were found :(");
+            } else {
+                // Output data into output container
+                $("#output").html(JSON.stringify(response));
 
-        apiCall();
-                  </script>
+                // create an HTML element that will hold all of the prettified elements
+                var movieContainer = $('<div class="movie_Container">');
+                // Append the movie container to the existing container
+                $(".pretty_movie_output").append(movieContainer);
+
+                // Go through each property of the object and create/input the data from the object
+                for(var prop in response) {
+                    var element;
+                    if (prop == "Poster" && response[prop] != "N/A") {
+                        element = $("<img class='pretty'>").attr("src", response[prop]);
+                    } else {
+                        element = $("<h3 class='pretty'>").text(prop + ": " + response[prop]);
+                    }
+         
+                    movieContainer.append(element);
+                }
+            }
+        });
+    });
+
+      </script>
 
     </section>
 
