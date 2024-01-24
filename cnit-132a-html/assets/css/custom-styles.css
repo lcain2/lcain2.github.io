@@ -1,0 +1,107 @@
+body {
+    background-color: #fffcf7; /*cream*/
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Typography */
+
+a {
+    color: #658D34;
+}
+
+a:hover {
+    color: #34598D;
+}
+
+p.large, span.large {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+}
+
+/* Layout */
+
+header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    background: #fffcf7;
+}
+
+main {
+    padding: 2rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: calc(100% - 4rem);
+}
+
+header #site-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: teal;
+}
+
+nav {
+    align-self: flex-end;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    padding: .5rem;
+    margin: 0 .25rem;
+}
+
+nav ul li a {
+    color: #222;
+    text-decoration: none;
+    letter-spacing: .02rem;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid teal;
+}
+
+nav ul li a.current {
+    color: #222;
+    letter-spacing: .03rem;
+    border-bottom: 2px solid teal;
+}
+
+#intro {
+    display: flex;
+    gap: 2rem;
+    max-width: 60rem;
+    margin: 8% auto;
+}
+
+.intro__text {
+    flex: 1;
+}
+
+.intro__text p:first-child {
+    margin-top: 0;
+}
+
+.intro__image {
+    flex: 1;
+}
+
+.intro__image img {
+    max-width: 100%;
+}
