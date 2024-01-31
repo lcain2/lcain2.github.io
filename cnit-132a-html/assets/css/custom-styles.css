@@ -13,15 +13,29 @@ img {
 /* Typography */
 
 a {
-    color: #658D34;
+    color: teal;
 }
 
 a:hover {
-    color: #34598D;
+    color: purple;
+    text-decoration: none;
+}
+
+a.button {
+    display: inline-block;
+    padding: .5rem 1rem;
+    background: teal;
+    color: white;
+    text-decoration: none;
+    border-radius: .2rem;
+}
+
+a.button:hover {
+    background: purple;
 }
 
 p.large, span.large {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.9rem;
 }
 
@@ -83,6 +97,8 @@ nav ul li a.current {
     border-bottom: 2px solid teal;
 }
 
+/* Home */
+
 #intro {
     display: flex;
     gap: 2rem;
@@ -100,8 +116,22 @@ nav ul li a.current {
 
 .intro__image {
     flex: 1;
+    position: relative;
 }
 
 .intro__image img {
-    max-width: 100%;
+    max-width: 70%;
+}
+
+#home-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+}
+#home-headshot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
