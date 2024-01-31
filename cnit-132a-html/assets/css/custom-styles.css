@@ -10,6 +10,21 @@ img {
     max-width: 100%;
 }
 
+/* Animation */
+
+/*  animation: fadeIn ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Typography */
 
 a {
@@ -108,6 +123,10 @@ nav ul li a.current {
 
 .intro__text {
     flex: 1;
+    animation: fadeIn ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
 }
 
 .intro__text p:first-child {
@@ -124,14 +143,23 @@ nav ul li a.current {
 }
 
 #home-gradient {
+    
     position: absolute;
     top: 0;
     right: 0;
     z-index: 0;
+    opacity: 0;
+    animation: fadeIn ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 #home-headshot {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;    
 }
