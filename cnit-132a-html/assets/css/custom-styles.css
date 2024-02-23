@@ -1,13 +1,36 @@
+:root { 
+    --dkgray3: #333;
+    --dkgray2: #222;
+    --lightest-gray: #EEE;
+    --teal: teal;
+    --cream: #fffcf7;
+    --purple: purple;
+
+    --text: var(--dkgray3);
+    --link: var(--teal);
+    --link-hover: var(--purple);
+
+    --radius-sm: .2rem;
+    --radius-md: .5rem;
+    --shadow-panel: 0 0 6px rgba(0,0,0,.3);
+    --padding-lr: 2rem;
+  }
+  
+
 body {
-    background-color: #fffcf7; /*cream*/
+    background-color: var(--cream);
     font-size: 1rem;
     line-height: 1.5rem;
     font-family: 'DM Sans', sans-serif;
-    color: #333;
+    color: var(--text);
 }
 
 img {
     max-width: 100%;
+}
+
+figure {
+    margin: 1rem 0;
 }
 
 /* Animation */
@@ -27,26 +50,31 @@ img {
 
 /* Typography */
 
+h1 {
+    margin-bottom: 3rem;
+    line-height: 2.5rem;
+}
+
 a {
-    color: teal;
+    color: var(--teal);
 }
 
 a:hover {
-    color: purple;
+    color: var(--purple);
     text-decoration: none;
 }
 
 a.button {
     display: inline-block;
     padding: .5rem 1rem;
-    background: teal;
+    background: var(--teal);
     color: white;
     text-decoration: none;
-    border-radius: .2rem;
+    border-radius: var(--radius-sm);
 }
 
 a.button:hover {
-    background: purple;
+    background: var(--purple);
 }
 
 p.large, span.large {
@@ -57,27 +85,30 @@ p.large, span.large {
 /* Layout */
 
 header {
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    background: #fffcf7;
-}
-
-main {
-    padding: 2rem;
-}
-
-header {
     position: fixed;
     top: 0;
     width: calc(100% - 4rem);
+    padding: 1rem var(--padding-lr);
+    display: flex;
+    justify-content: space-between;
+    background: var(--cream);
+}
+
+main {
+    padding: var(--padding-lr);
+    max-width: 60rem;
+    margin: 8% auto;
+}
+
+.line-length {
+    max-width: 36rem;  
 }
 
 header #site-title {
     margin: 0;
     font-size: 1.5rem;
     font-weight: normal;
-    color: teal;
+    color: var(--teal);
 }
 
 nav {
@@ -97,19 +128,34 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #222;
+    color: var(--dkgray2);
     text-decoration: none;
     letter-spacing: .02rem;
 }
 
 nav ul li a:hover {
-    border-bottom: 2px solid teal;
+    border-bottom: 2px solid var(--teal);
 }
 
 nav ul li a.current {
-    color: #222;
+    color: var(--dkgray2);
     letter-spacing: .03rem;
-    border-bottom: 2px solid teal;
+    border-bottom: 2px solid var(--teal);
+}
+
+.flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.col {
+    flex: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .flex {
+        display: block;
+    }
 }
 
 /* Home */
@@ -117,8 +163,6 @@ nav ul li a.current {
 #intro {
     display: flex;
     gap: 2rem;
-    max-width: 60rem;
-    margin: 8% auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -132,6 +176,10 @@ nav ul li a.current {
     animation: fadeIn ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;  
+}
+
+.intro__text h1 {
+    margin-bottom: 1rem;
 }
 
 .intro__text p:first-child {
@@ -174,3 +222,51 @@ nav ul li a.current {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;    
 }
+
+/* Assignments */
+
+ul.assignments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.assignments-list li {
+    margin: 0 0 2rem 0;
+}
+
+ul.assignments-list a {
+    display: block;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-panel);
+    border-left: 5px solid var(--link);
+    font-size: 1.6rem;
+    text-decoration: none;
+    
+}
+
+ul.assignments-list a:hover {
+    border-color: var(--link-hover);
+}
+
+ul.assignments-list span.hw {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+ul.assignments-list span.title {
+    display: block;   
+}
+
+ul.assignments-list a:hover span.title::after {
+    content: '\21E2';
+    display: inline-block;
+    padding: 0 0 0 .2rem;
+}
+
+/* Homework 3 */
+
