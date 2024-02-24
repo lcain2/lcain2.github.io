@@ -51,7 +51,7 @@ figure {
 /* Typography */
 
 h1 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 2.5rem;
 }
 
@@ -95,7 +95,7 @@ header {
 }
 
 main {
-    padding: var(--padding-lr);
+    padding: 0 var(--padding-lr);
     max-width: 60rem;
     margin: 8% auto;
 }

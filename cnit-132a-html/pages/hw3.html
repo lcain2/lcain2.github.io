@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPE9P7KTL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7TPE9P7KTL');
+  </script>
+  <meta charset="utf-8">
+  <meta name="description" content="Leslie Cain's Homework 3 for CNIT 132A, Spring 2024">
+  <title>Homework 3: Working with Images | Leslie Cain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,700;1,9..40,300;1,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom-styles-minified.css">
+</head>
+
+<body class="subpage">
+
+<header>
+  <div id="site-title">Leslie Cain</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="assignments.html">Assignments</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Homework 3: Working with Images</h1>
+  <div class="flex">
+    <figure class="col">
+      <img src="assets/images/bodie-original.jpg" alt="Photo of historic Bodie, CA - Original Size">
+      <figcaption><strong>Original Photo:</strong> 2186px (w) x 1640px (h), 8.7MB. <a href="assets/images/bodie-original.jpg">View at full size</a></figcaption>
+    </figure>
+    <figure class="col">
+      <img src="assets/images/bodie-optimized.jpg" alt="Photo of historic Bodie, CA - Optimized">
+      <figcaption><strong>Optimized Photo:</strong> 600px (w) x 450px (h), 93KB.</figcaption>
+    </figure>
+  </div>
+  <div class="line-length">
+    <p>The image above was optimized using <a href="https://jpeg-optimizer.com/">JPEG Optimizer</a>. You can see in the captions above that the size of the original photo was 8.7MB and the width was over 2000px. Both the size and dimensions were unnecessarily large, considering that in the layout, the width of the photo is never more than 520px wide. To reduce download time, the image was scaled down to 600px and reduced to 85% quality, which reduced the file size by 93.5%. With my high-speed internet connection, the optimized image appeared instantly (290ms), while the original took almost a full minute to load (55.6s). 
+    </p>
+  </div>
+</main>
+  
+  
+</body>
+
+</html>
