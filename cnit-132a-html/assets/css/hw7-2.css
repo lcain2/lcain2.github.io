@@ -25,6 +25,6 @@
       }
      .house { 
          float: left;
-         shape-outside: url(assets/images/house.png);
+         shape-outside: url(../images/house.png);
          shape-margin: 1rem;
       }
