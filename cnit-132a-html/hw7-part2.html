@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>CSS Shapes</title>
+   <meta charset="utf-8">
+   <meta name="description" content="using CSS shapes">
+   <style>
+	   body { 
+         font: 1.1em Helvetica, Arial, sans-serif; 
+         line-height: 1.8rem; 
+         background-color: rgb(220, 245, 243); 
+         padding: 1rem 2rem; 
+      }
+     .wrapper {
+         container-type: inline-size; 
+         max-width: 700px; 
+         margin-left: auto; 
+         margin-right: auto; 
+      }
+      h1 {
+         margin-bottom: 3rem;
+         font-size: 2.4rem;
+      }
+      h2 {
+         font-size: 2rem;
+      }
+      @container (max-width: 600px) {
+         h2 {
+            font-size: 1.4rem;
+         }
+      }
+     .house { 
+         float: left;
+         shape-outside: url(assets/images/house.png);
+      }
+   </style>
+</head>
+<body>
+<div class="wrapper">
+   <h1>Using CSS Shapes</h1>
+   <section class="content">
+      <h2>About Houses</h2>
+      <img src="assets/images/house.png" alt="house icon" class="house">
+      <p>A house is a single-unit residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems.</p><p>Houses use a range of different roofing systems to keep precipitation such as rain from getting into the dwelling space. Houses generally have doors or locks to secure the dwelling space and protect its inhabitants and contents from burglars or other trespassers. Most conventional modern houses in Western cultures will contain one or more bedrooms and bathrooms, a kitchen or cooking area, and a living room. A house may have a separate dining room, or the eating area may be integrated into the kitchen or another room. Some large houses in North America have a recreation room. In traditional agriculture-oriented societies, domestic animals such as chickens or larger livestock (like cattle) may share part of the house with humans.</p>
+   </section>
+</div>
+</body>
+</html>
