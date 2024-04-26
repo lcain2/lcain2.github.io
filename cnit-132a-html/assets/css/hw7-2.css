@@ -1,0 +1,30 @@
+
+	  body { 
+         font: 1.1em Helvetica, Arial, sans-serif; 
+         line-height: 1.8rem; 
+         background-color: rgb(220, 245, 243); 
+         padding: 1rem 2rem; 
+      }
+     .wrapper {
+         container-type: inline-size; 
+         max-width: 700px; 
+         margin-left: auto; 
+         margin-right: auto; 
+      }
+      h1 {
+         margin-bottom: 3rem;
+         font-size: 2.4rem;
+      }
+      h2 {
+         font-size: 2rem;
+      }
+      @container (max-width: 600px) {
+         h2 {
+            font-size: 1.4rem;
+         }
+      }
+     .house { 
+         float: left;
+         shape-outside: url(assets/images/house.png);
+         shape-margin: 1rem;
+      }
