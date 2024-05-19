@@ -51,9 +51,35 @@ figure {
 /* Typography */
 
 h1 {
+    font-size: 3rem;
+    line-height: 130%;
     margin-bottom: 2rem;
-    line-height: 2.5rem;
+    
 }
+
+h2 {
+    font-size: 2rem;
+    line-height: 130%;
+    margin-bottom: 2.5rem;
+    
+}
+
+h3, .h3 {
+    font-size: 1.5rem;
+    line-height: 130%;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--teal);
+    padding-top: 2rem;
+    
+}
+
+dt {
+    font-weight: bold; 
+    margin-bottom: .5rem;
+    }
+dd {
+    margin-bottom: 2rem;
+    }
 
 a {
     color: var(--teal);
@@ -75,6 +101,20 @@ a.button {
 
 a.button:hover {
     background: var(--purple);
+}
+
+
+a[target=_blank] {
+    position: relative;
+}
+
+a[target=_blank]::after {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    content: '\e89e';
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 4px;
 }
 
 p.large, span.large {
@@ -225,18 +265,15 @@ nav ul li a.current {
 
 /* Assignments */
 
-ul.assignments-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.assignments-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1rem;
-    row-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
 }
 
-ul.assignments-list > li {
-    margin: 0 0 2rem 0;
+.assignments-list > article {
+    margin: 0;
     display: block;
     padding: 1rem;
     background: white;
@@ -245,48 +282,94 @@ ul.assignments-list > li {
     border-left: 5px solid var(--link);
 }
 
-ul.assignments-list span.hw {
-    display: inline-block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--text);
+.assignments-list > article h3 {
+    font-size: 1.3rem;
+    border-top: none;
+    padding: 0;
+    margin: 0 0 .5rem;
 }
 
-ul.assignments-list span.date {
+.assignments-list span.date {
     font-size: .8rem;
-    display: inline-block;
-    margin-left: .5rem;
+    display: block;
+    margin: 0 0 1.25rem;
 }
 
-ul.assignments-list ul {
-    margin: 1rem 0 0 0;
-    padding: 0 0 0 1rem;
+.assignments-list ul {
+    margin: 0;
+    padding: 0 0 0 2rem;
 }
 
-ul.assignments-list ul li {
+.assignments-list ul li {
     margin-bottom: 1rem;
 }
 
-ul.assignments-list a { 
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: none;
+.assignments-list a { 
+    font-size: 1.1rem;
     display: block;
 }
 
-ul.assignments-list a:hover {
+.assignments-list a:hover {
     border-color: var(--link-hover);
 }
 
-ul.assignments-list a:hover::after {
+.assignments-list a:hover::after {
     content: '\21E2';
     display: inline-block;
     padding: 0 0 0 .2rem;
 }
 
+/* Contact */
 
+#contact-headshot {
+    float: left;
+    width: 8rem;
+    margin: 0 1rem 0 0;
+    height: auto;
+    animation: fadeIn ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;    
+}
 
+/* Homework 8 */
 
+.ga-report-download {
+    display: block;
+    background: black;
+    position: relative;
+    padding: 5rem 0;
+    overflow: hidden;
+    text-align: center;
+}
 
-/* Homework 3 */
+.ga-report-download img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    max-width: 100%;
+    opacity: .8;
+    margin: 0;
+}
+
+span.button {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    padding: .5rem 1rem;
+    margin: 0 auto;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+}
+
+.ga-report-download:hover img {
+    opacity: .2;
+}
+
+.ga-report-download:hover span.button {
+    background: var(--purple);
+}
+
 
