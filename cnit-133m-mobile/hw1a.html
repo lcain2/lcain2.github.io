@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Leslie Cain | Mobile Web w/HTML, CSS & JS</title>
+  <meta name="description" content="Leslie Cain's homework 1A for Mobile Web w/HTML, CSS & JS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,700;1,9..40,300;1,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/hw1.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("h1").click(function(){
+      $("h1").addClass("lg-teal");
+      $("img").addClass("border"); 
+      var timer = setTimeout(function() {$("h1").addClass("orig")}, 5000);     
+    });
+  });
+  </script>
+
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $("img").addClass("border");
+      $("h1").css("color", "teal");
+      $("h1").animate({"font-size": "+=1rem"}, 3000);
+      $("h1").animate({"font-size": "-=1rem"}, 3000);
+      var timer = setTimeout(function() {$("h1").css("color", "#333")}, 5000);     
+    });
+  });
+  </script>
+</head>
+
+<body id="hw1a">
+
+<div class="wrapper">
+
+<header>
+  <h1>Mobile Web w/HTML, CSS & JS</h1>
+  <button>Start Animation</button>
+</header>
+
+<main>
+  <figure class="fig-intro">
+    <img src="assets/images/leslie-cain-developer-san-francisco.png" alt="Photo of Leslie Cain, Frontend Developer in San Francisco">
+  </figure>
+  <p>
+    Hi, I'm Leslie, and I am an aspiring frontend developer based in San Francisco. I have a professional background in website design and user experience. I am a creative person by nature, and I enjoy coding and creating things for the web.  
+  </p>
+  <p class="clear">I am taking the CNIT Mobile Web class this semester because mobile development skills are critical to have at a time where most people use their phones to access the web on a daily basis.</p>
+
+  <h2>Technologies for this class</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+
+  <h2>Resources</h2>
+  <ul>
+    <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer" >W3 Schools</a> is a comprehensive learning tool for web development that I reference frequently. I most often use the <a href="https://www.w3schools.com/html/default.asp" target="_blank" rel="noopener noreferrer">HTML tutorial</a> and <a href="https://www.w3schools.com/css/default.asp" target="_blank" rel="noopener noreferrer">CSS tutorial</a> to refresh my memory on HTML and CSS elements and understand how to use them properly.</li>
+    <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer" >W3C Markup Validator</a> is an essential tool that checks your HTML code to make sure it is valid. W3C has a handy <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer" >CSS Validator</a> as well.</li>
+  </ul>
+</main>
+  
+</div><!--end wrapper--> 
+
+</body>
+
+</html>
