@@ -1,0 +1,90 @@
+/* Variables */
+/* Layout */
+body {
+  background-color: #fffcf7;
+  font-size: 1.3rem;
+  font-family: 'DM Sans', sans-serif;
+  color: #333; }
+
+.wrapper {
+  max-width: 50rem;
+  margin: 2rem auto;
+  padding: 2rem 4rem;
+  background: #fff;
+  border-radius: .5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }
+
+.clear {
+  clear: both; }
+
+/* Typography */
+a {
+  color: teal; }
+
+a:hover {
+  color: purple;
+  text-decoration: none; }
+
+a[target=_blank] {
+  position: relative; }
+
+a[target=_blank]::after {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  content: '\e89e';
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 4px; }
+
+h1, h2 {
+  text-align: center; }
+
+h1 {
+  margin-bottom: 3rem; }
+
+h2 {
+  margin-top: 3rem; }
+
+p {
+  line-height: 2rem; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+  ul li {
+    margin-bottom: 1rem;
+    line-height: 2rem; }
+
+/* Images */
+img {
+  max-width: 100%; }
+
+.fig-intro {
+  float: left;
+  max-width: 8rem;
+  margin: 0 1.5rem 1rem 0; }
+
+/* HW 1A */
+#hw1a img {
+  border: 5px solid transparent;
+  border-radius: 50%; }
+#hw1a .border {
+  border-color: teal;
+  transition: border-color 1s; }
+#hw1a h1 {
+  margin-bottom: 2rem;
+  transition: color 2s; }
+#hw1a button {
+  display: block;
+  margin: 0 auto 3rem;
+  border-radius: .5rem;
+  padding: .75rem;
+  background: teal;
+  color: white;
+  font-size: 1rem;
+  border: 0;
+  cursor: pointer; }
+  #hw1a button:hover {
+    background: purple; }
+
+/*# sourceMappingURL=hw1.css.map */
