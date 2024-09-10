@@ -32,7 +32,7 @@
             color: white;
         }
         .wrapper {
-            max-width: 60rem;
+            max-width: 70rem;
             margin: 0 auto;
         }
         section {
@@ -66,26 +66,10 @@
             text-align: center;
             margin-top: 1.2rem;
         } 
-        #example {
-            background: lightslategray;
-            color: black;
-            padding: 2rem;
-        }
-        #result {
-            background: lightgreen;
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-        select {
-            padding: .5rem;
-            font-size: 1rem;
-            
-        }
         pre {
             background: lightgray;
             padding: 0 1rem;
-            margin: 0 0 1rem;
+            margin: 1rem 0;
             border-radius: 5px;
         }
         code {
@@ -116,18 +100,13 @@
         <section>
             <h2>HTMX Triggers</h2>
             <p>
-                <strong>Is it possible to have multiple trigger types in HTMX?</strong> Yes, the hx-trigger attribute allows multiple triggers. You can declare multiple triggers by separating them with commas. In the example below, you can see that the select field has two triggers - load and change. There are two actions that take place when the htmx is triggered:</p>
-                <ol>
-                    <li>A post request with the selected option is sent to the specified URL using hx-post.</li>
-                    <li>The selected option is displayed in the result area using <strong>[???]</strong> to identify the selection and hx-target to place it in the #result div.</li>
-                </ol>
-                <p>This means that on page load, the pre-selected option (San Francisco) will post to the hx-get URL and also display in the result area. And when the selection is changed, the new option will post, and replace the previous selection in the result area.
+                <strong>Is it possible to have multiple trigger types in HTMX?</strong> Yes, the hx-trigger attribute allows multiple triggers. You can declare multiple triggers by separating them with commas. In the example below, you can see that the select field has two triggers - load and change. 
+                When the first trigger occurs on page load, the HTMX code will post the pre-selected option to the URL specified with hx-post (/api/search). The response from that server will then display on the page in div#result, due to the use of hx-target, which identifies the area to place the response, and hx-swap, which places it within the div. The second trigger, change, will be used to update the response when the user selects another city option from the select menu. 
             </p>
-            <div id="example">
-
+            
 <pre>
 <code>
-&lt;select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-post="/api/search"&gt;
+&lt;select name="city" id="city" hx-trigger="load, change" hx-post="/api/search" hx-target="#result" hx-swap="innerHTML"&gt;
     &lt;option value="San Francisco">San Francisco&lt;/option&gt;
     &lt;option value="New York">New York&lt;/option&gt;
     &lt;option value="Las Vegas">Las Vegas&lt;/option&gt;
@@ -135,26 +114,7 @@
 &lt;div id="result"&gt;&lt;/div&gt;
 </code>
 </pre>
-                
-                <form>
-                    <select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-swap="innerHTML" hx-post="/api/search">
-                        <option value="San Francisco">San Francisco</option>
-                        <option value="New York">New York</option>
-                        <option value="Las Vegas">Las Vegas</option>
-                    </select>
-
-                    <!--<select name="city" id="city" hx-get="https://jsonplaceholder.typicode.com/users" hx-trigger="load, change" hx-target="#result" hx-post="/api/search">
-                        <option value="San Francisco">San Francisco</option>
-                        <option value="New York">New York</option>
-                        <option value="Las Vegas">Las Vegas</option>
-                    </select>-->
-
-                    <div id="result">
-                    
-                    </div><!--end result-->
-                </form>
-
-            </div><!--end example-->
+            
         </section>
     </div>
 </body>
