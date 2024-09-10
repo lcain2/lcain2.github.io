@@ -70,10 +70,6 @@
             background: lightslategray;
             color: black;
             padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: 1fr;
-            grid-column-gap: 1rem;
         }
         #result {
             background: lightgreen;
@@ -89,13 +85,13 @@
         pre {
             background: lightgray;
             padding: 0 1rem;
-            margin: 0;
+            margin: 0 0 1rem;
             border-radius: 5px;
         }
         code {
             margin: 0;
             padding: 0;
-            font-size: 1rem;
+            font-size: .9rem;
         }
     </style>
 </head>
@@ -131,16 +127,17 @@
 
 <pre>
 <code>
-    <select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-post="/api/search">
-        <option value="San Francisco">San Francisco</option>
-        <option value="New York">New York</option>
-        <option value="Las Vegas">Las Vegas</option>
-    </select>
+&lt;select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-post="/api/search"&gt;
+    &lt;option value="San Francisco">San Francisco&lt;/option&gt;
+    &lt;option value="New York">New York&lt;/option&gt;
+    &lt;option value="Las Vegas">Las Vegas&lt;/option&gt;
+&lt;/select&gt;
+&lt;div id="result"&gt;&lt;/div&gt;
 </code>
 </pre>
                 
                 <form>
-                    <select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-post="/api/search">
+                    <select name="city" id="city" hx-trigger="load, change" hx-target="#result" hx-swap="innerHTML" hx-post="/api/search">
                         <option value="San Francisco">San Francisco</option>
                         <option value="New York">New York</option>
                         <option value="Las Vegas">Las Vegas</option>
