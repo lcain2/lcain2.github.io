@@ -33,6 +33,10 @@
       .axisY text {
          text-anchor: end;   
       }
+
+      .tooltip {
+         
+      }
    
    </style>
 </head>
@@ -77,6 +81,8 @@
       .enter()
       .append("rect")
       .attr("class", "bar")
+      /*.on("mouseover", onMouseOver)
+      .on("mouseout", onMouseOut)*/
       .attr("x", function(d) { return x(d.term); })
       .attr("y", function(d) { return y(d.students); })
       .attr("width", x.bandwidth())
@@ -92,6 +98,35 @@
       .attr("y", function(d) { return y(d.students)- 5; })
          .attr("class", "label");  
    });  // end of json     
+   
+   
+  
+  /*function onMouseOver(d, i) {
+     d3.select(this)
+   .attr('class', 'over');
+   
+   d3.select(this)
+      .transition()
+      .duration(200)
+      .attr('width', x.bandwidth() + 5)
+      .attr("y", function(d) { return y(d.students) - 10; })
+      .attr("height", function(d) { return h - y(d.students) + 10; });
+
+    }  // end of function onMouseOver
+   
+   function onMouseOut(d, i) {
+      d3.select(this)
+         .attr('class', 'bar');
+       
+      d3.select(this)
+         .transition()
+       .duration(200)
+       .attr('width', x.bandwidth())
+       .attr("y", function(d) { return y(d.students); })
+       .attr("height", function(d) {return h - y(d.students); });
+       
+     }  // end of onMouseOut
+       */
 
  </script>
 
