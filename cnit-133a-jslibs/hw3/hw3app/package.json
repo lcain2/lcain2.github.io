@@ -1,0 +1,11 @@
+{
+  "name": "hw3app",
+  "version": "1.0.0",
+  "description": "Assignment for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leslie Cain",
+  "license": "ISC"
+}
