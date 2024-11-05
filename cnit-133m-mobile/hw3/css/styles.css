@@ -72,6 +72,7 @@ nav {
 
 #map {
   width: 100%;
-  height: 30rem;
+  height: 25rem;
+  overflow: hidden;
 }
 
