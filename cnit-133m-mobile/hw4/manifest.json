@@ -12,8 +12,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "images/screenshot-landscape.jpg",
-      "type": "image/jpg",
+      "src": "images/screenshot-landscape.png",
+      "type": "image/png",
       "sizes": "720x540",
       "form_factor": "wide"
     }
