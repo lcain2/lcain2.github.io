@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Leslie Cain | Mobile Web w/HTML, CSS & JS</title>
+  <meta name="description" content="Leslie Cain's homework 4 for Mobile Web w/HTML, CSS & JS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,700;1,9..40,300;1,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/hw4.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<script>
+  function bgSubmit() {
+    const body = document.body;
+    const dropdown = document.getElementById('dropdown');
+    const bg = dropdown.value;
+
+    if (dropdown.value == "silver") {
+      body.classList.add("bg-silver");
+      body.classList.remove("bg-gold");
+      dropdown.classList.add("text-silver");
+      dropdown.classList.remove("text-gold");
+    } 
+    if (dropdown.value == "gold") {
+      body.classList.add("bg-gold");
+      body.classList.remove("bg-silver");
+      dropdown.classList.add("text-gold");
+      dropdown.classList.remove("text-silver");
+    }
+    if (dropdown.value == "white") {
+      body.classList.remove("bg-silver");
+      body.classList.remove("bg-gold");
+      dropdown.classList.remove("text-silver");
+      dropdown.classList.remove("text-gold");
+    } 
+  }
+</script>
+
+<body>
+
+<header>
+  <img src="images/ram-logo.png" class="logo">
+
+  <form action="#" id="bg-selection">
+    <label for="bg">customize background</label>
+      <select name="bg" id="dropdown" onchange="bgSubmit()">
+        <option value="white">white</option>
+        <option value="silver" class="silver">silver</option>
+        <option value="gold" class="gold">gold</option>   
+    </select>
+  </form>
+</header>
+
+<div class="wrapper">
+
+<main>
+  <h1>Topic 7: Offline, Storage, PWA</h1>
+
+  <h2>Main Characteristics of PWA</h2>
+  <p>
+    Definition and explanation. At least two paragraphs where you will be explaining what are the main characteristics of a PWA (Progressive Web Application).
+  </p>
+  <p>
+  </p>
+
+  <!--
+  <form action="javascript:bgSubmit();" id="bg-selection">
+    <label for="bg">Background Image:</label>
+      <select name="bg" id="dropdown">
+        <option value="silver">Silver</option>
+        <option value="gold">Gold</option>
+        <option value="white" class="button" selected>White</option>
+    </select>
+    <input type="submit" class="button">
+  </form>
+  -->
+
+  <h2>Manifest File
+  </h2>
+  <p>Create a manifest file for that basic PWA so the user will be able to see the option to install the application when using the menu of the browser</p>
+
+  <h2>Nice Icon</h2>
+  <p>Choose a nice icon to your application and make the icon to be on the sizes you will need to declare in the manifest file! Tip: The icon needs to have the size you are declaring in the manifest file, which means you will need to use an image editor software to resize the icon to the sizes needed</p>
+
+  <h2>Service-worker.js file</h2>
+  <p>You will also create a service-worker.js file in order to make that PWA page work even when the user is offline - even the change of the background image should be able to work as the images would also be cached! Tip: remember to cache all the files that make your web application work: the HTML page, the CSS, the images you are using, etc.</p>
+
+  <h2>Extra Credit</h2>
+  <p>You will create on the same web page an input box (do not forget to include the label tag for that input box) where the user will type his/her name.</p>
+  <p>As soon as the user finishes typing his/her name, you will have a small JavaScript program to check the Local Storage of the page to see if there is a "name" key (you can use the value of "name" for the key of the Local Storage) in the Local Storage. If there is not, it means that you need to save the name typed by the user in the Local Storage. But in either case, you will update part of the paragraph below the input box to show the name that has been retrieved from the Local Storage.</p>
+
+</main>
+  
+</div><!--end wrapper--> 
+
+</body>
+
+</html>
