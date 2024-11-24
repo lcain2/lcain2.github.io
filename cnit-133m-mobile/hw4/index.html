@@ -41,6 +41,12 @@
       dropdown.classList.remove("text-gold");
     } 
   }
+
+  if (navigator.serviceWorker) { navigator.serviceWorker.register('service-worker.js', {scope: './about'}) .then(function (registration) { 
+    // Registration of service worker ok 
+    console.log('Registration of service worker successful with scope: ', registration.scope); }).catch(function(err) { 
+    // Registration of service worker failed 
+    console.log('Registration of service worker failed with error: ', err); }) } else { console.log('Service Worker is not supported by this browser'); }
 </script>
 
 <body>
@@ -61,33 +67,14 @@
 <div class="wrapper">
 
 <main>
-  <h1>Topic 7: Offline, Storage, PWA</h1>
+  <h1>Silver & Gold: A Progressive Web Application</h1>
 
-  <h2>Main Characteristics of PWA</h2>
-  <p>
-    Definition and explanation. At least two paragraphs where you will be explaining what are the main characteristics of a PWA (Progressive Web Application).
+  <h2>What is a Progressive Web Application</h2>
+  <p>A Progressive Web Application (PWA) is a web-based app that provides a user experience that is similar to a platform-specific app you might download from an app store. They are built using a combination of technologies that allow it to have better performance, availability, and reliability than a traditional website. 
   </p>
-  <p>
+  <h2>Characteristics of a Progressive Web Application</h2>
+  <p>The major advantage of a PWA is that it uses standard web technologies that work on many types of operating systems and devices. This allows the builder to have a single code base, instead of having separate platform-specific apps. It is fully responsive and uses progressive enhancement to make sure that it will work on all devices in some capacity. For the user, the experience is similar to a transitional app. PWAs can be downloaded through a web browser or an app store and installed on a user's device, where they can then access it through an app icon. The installation process downloads all of the necessary files to run the app without an internet connection. PWAs can also run background tasks and leverage device features such as push notifications. 
   </p>
-
-  <!--
-  <form action="javascript:bgSubmit();" id="bg-selection">
-    <label for="bg">Background Image:</label>
-      <select name="bg" id="dropdown">
-        <option value="silver">Silver</option>
-        <option value="gold">Gold</option>
-        <option value="white" class="button" selected>White</option>
-    </select>
-    <input type="submit" class="button">
-  </form>
-  -->
-
-  <h2>Manifest File
-  </h2>
-  <p>Create a manifest file for that basic PWA so the user will be able to see the option to install the application when using the menu of the browser</p>
-
-  <h2>Nice Icon</h2>
-  <p>Choose a nice icon to your application and make the icon to be on the sizes you will need to declare in the manifest file! Tip: The icon needs to have the size you are declaring in the manifest file, which means you will need to use an image editor software to resize the icon to the sizes needed</p>
 
   <h2>Service-worker.js file</h2>
   <p>You will also create a service-worker.js file in order to make that PWA page work even when the user is offline - even the change of the background image should be able to work as the images would also be cached! Tip: remember to cache all the files that make your web application work: the HTML page, the CSS, the images you are using, etc.</p>
