@@ -1,8 +1,12 @@
 var CACHE_VERSION = 'sg-v1';
 var CACHE_FILES = [
+    'images/favicon.ico',
     'images/ram-logo.png',
+    'images/bg-gold.jpg',
+    'images/bg-silver-600.jpg',
+    'images/bg-silver-1200.jpg', 
     'css/hw4.css', 
-    'index.html'
+    'app.js'
 ];
 
 self.addEventListener('install', event => {
