@@ -6,7 +6,8 @@ var CACHE_FILES = [
     'images/bg-silver-600.jpg',
     'images/bg-silver-1200.jpg', 
     'css/hw4.css', 
-    'app.js'
+    'app.js',
+    'index.html'
 ];
 
 self.addEventListener('install', event => {
