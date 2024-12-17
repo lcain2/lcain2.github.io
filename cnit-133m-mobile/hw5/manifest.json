@@ -1,0 +1,24 @@
+{ "short_name": "Hybrid Solutions", 
+"name": "Comparing Hybrid Solutions", 
+"description": "Comparing PhoneGap, Flutter, and React Native", 
+"icons": [ { "src": "images/ram-icon-192.png", "type": "image/png", "sizes": "192x192" }, { "src": "images/ram-icon-512.png", "type": "image/png", "sizes": "512x512" } ],
+"start_url": "?source=pwa", 
+"background_color": "#FFFFFF",
+"screenshots": [
+    {
+      "src": "images/screenshot-portrait.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/screenshot-landscape.png",
+      "type": "image/png",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    }
+  ], 
+"display": "standalone", 
+"scope": "/", 
+"theme_color": "#000000"
+}

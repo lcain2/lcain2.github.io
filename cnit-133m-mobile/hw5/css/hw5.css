@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    line-height: 1.4;
+    color: rgb(79,42,119);
+    font-weight: lighter;
+}
+
+a {color: #3259B9}
+a:hover {
+    color: #0a276e;
+}
+a:visited {color: rgb(118, 0, 154);}
+
+header {
+    width: 100%;
+    background: rgb(79,42,119);
+    background: linear-gradient(90deg, rgba(79,42,119,1) 0%, rgba(144,78,188,1) 25%, rgba(0,212,255,1) 100%);box-shadow: 0 0 8px rgba(0,0,0,.3);
+}
+
+header .inner {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+header h2 {
+    color: white;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h3.smaller {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+ul.smaller {
+    font-size: .9rem;
+}
+
+.wrapper {
+    max-width: 50rem;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    } 
+    .wrapper {
+        margin-top: 2rem;
+    } 
+    h2 {
+        font-size: 1.25rem;
+    } 
+}
